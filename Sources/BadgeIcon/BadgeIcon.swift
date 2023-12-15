@@ -13,7 +13,6 @@ import SwiftUI
  This view mimics the color badge icons that can be found in
  System Settings on iOS and macOS.
  */
-@available(iOS 16.0, macOS 13.0, *)
 public struct BadgeIcon: View {
     
     /**
@@ -90,7 +89,6 @@ public struct BadgeIcon: View {
     }
 }
 
-@available(iOS 16.0, macOS 13.0, *)
 public extension BadgeIcon {
     
     static var alert: Self {
@@ -247,7 +245,6 @@ public extension BadgeIcon {
     }
 }
 
-@available(iOS 16.0, macOS 13.0, *)
 private extension Color {
     
     func asGradientBackground() -> some View {
@@ -255,7 +252,6 @@ private extension Color {
     }
 }
 
-@available(iOS 16.0, macOS 13.0, *)
 private extension View {
     
     @ViewBuilder
@@ -304,7 +300,6 @@ private func item<ViewType: View>(
     )
 }
 
-@available(iOS 16.0, macOS 13.0, *)
 #Preview {
     
     List {

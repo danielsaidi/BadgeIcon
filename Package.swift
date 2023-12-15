@@ -5,10 +5,10 @@ import PackageDescription
 let package = Package(
     name: "BadgeIcon",
     platforms: [
-        .iOS(.v15),
-        .tvOS(.v15),
+        .iOS(.v16),
+        .tvOS(.v16),
         .watchOS(.v8),
-        .macOS(.v12)
+        .macOS(.v13)
     ],
     products: [
         .library(
