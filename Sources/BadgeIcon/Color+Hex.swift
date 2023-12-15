@@ -108,10 +108,10 @@ extension ColorRepresentable {
        - alpha: The alpha value to apply, from 0 to 1.
      */
     convenience init(hex: UInt64, alpha: CGFloat = 1) {
-        let r = CGFloat((hex >> 16) & 0xff) / 255
-        let g = CGFloat((hex >> 08) & 0xff) / 255
-        let b = CGFloat((hex >> 00) & 0xff) / 255
-        self.init(red: r, green: g, blue: b, alpha: alpha)
+        let red = CGFloat((hex >> 16) & 0xff) / 255
+        let green = CGFloat((hex >> 08) & 0xff) / 255
+        let blue = CGFloat((hex >> 00) & 0xff) / 255
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 
     /**

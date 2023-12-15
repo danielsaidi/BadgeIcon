@@ -44,9 +44,12 @@ public struct BadgeIcon: View {
         size: Double = 32
     ) {
         let whiteBadge = badgeColor == .white
-        let whiteBadgeStroke: Color = .hex(0xe7e7e7)
-        let fallbackIconColor = whiteBadge ? .black.opacity(0.8) : Color.white
-        let fallbackStroke = whiteBadge ? whiteBadgeStroke : .clear
+        let whiteBadgeStroke = Color.hex(0xe7e7e7)
+        let whiteBadgeIconColor = Color.black.opacity(0.8)
+        let defaultIconColor = Color.white
+        let defaultStrokeColor = Color.clear
+        let fallbackIconColor = whiteBadge ? whiteBadgeIconColor : defaultIconColor
+        let fallbackStroke = whiteBadge ? whiteBadgeStroke : defaultStrokeColor
         
         self.icon = icon
         self.iconColor = iconColor ?? fallbackIconColor
@@ -90,6 +93,13 @@ public struct BadgeIcon: View {
 @available(iOS 16.0, macOS 13.0, *)
 public extension BadgeIcon {
     
+    static var alert: Self {
+        .init(
+            icon: .symbol("exclamationmark.triangle"),
+            iconColor: .orange
+        )
+    }
+    
     static var appStore: Self {
         .init(
             icon: Image(systemName: "apple.logo"),
@@ -105,11 +115,26 @@ public extension BadgeIcon {
         .symbolRenderingMode(.multicolor)
     }
     
+    static var checkmark: some View {
+        BadgeIcon(
+            icon: .symbol("checkmark.circle"),
+            iconColor: .green
+        )
+        .fontWeight(.semibold)
+    }
+    
     static var email: Self {
         .init(
             icon: .symbol("envelope"),
             iconColor: .white,
             badgeColor: .blue
+        )
+    }
+    
+    static var error: Self {
+        .init(
+            icon: .symbol("exclamationmark.triangle"),
+            iconColor: .red
         )
     }
     
@@ -165,23 +190,23 @@ public extension BadgeIcon {
     
     static var prominentCheckmark: some View {
         BadgeIcon(
-            icon: .symbol("checkmark"),
-            iconPadding: 7,
+            icon: .symbol("checkmark.circle"),
             badgeColor: .green
         )
         .fontWeight(.semibold)
+    }
+    
+    static var prominentError: Self {
+        .init(
+            icon: .symbol("exclamationmark.triangle"),
+            badgeColor: .red
+        )
     }
     
     static var redHeart: Self {
         .init(
             icon: .symbol("heart"),
             iconColor: .red
-        )
-    }
-    
-    static var review: Self {
-        .init(
-            icon: .symbol("star")
         )
     }
     
@@ -263,9 +288,12 @@ private extension View {
     
     return ScrollView(.vertical) {
         LazyVGrid(columns: [gridItem]) {
+            BadgeIcon.alert
             BadgeIcon.appStore
             BadgeIcon.bug
+            BadgeIcon.checkmark
             BadgeIcon.email
+            BadgeIcon.error
             BadgeIcon.featureRequest
             BadgeIcon.languageSettings
             BadgeIcon.lightbulb
@@ -274,8 +302,8 @@ private extension View {
             BadgeIcon.privacy
             BadgeIcon.prominentAlert
             BadgeIcon.prominentCheckmark
+            BadgeIcon.prominentError
             BadgeIcon.redHeart
-            BadgeIcon.review
             BadgeIcon.safari
             BadgeIcon.share
             BadgeIcon.yellowStar
