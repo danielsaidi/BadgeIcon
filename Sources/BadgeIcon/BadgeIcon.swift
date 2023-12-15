@@ -294,34 +294,40 @@ private extension View {
     }
 }
 
+private func item<ViewType: View>(
+    _ view: ViewType,
+    _ name: String
+) -> some View {
+    Label(
+        title: { Text(name) },
+        icon: { view }
+    )
+}
+
 @available(iOS 16.0, macOS 13.0, *)
 #Preview {
     
-    let gridItem = GridItem(.adaptive(minimum: 40, maximum: 50))
-    
-    return ScrollView(.vertical) {
-        LazyVGrid(columns: [gridItem]) {
-            BadgeIcon.alert
-            BadgeIcon.appStore
-            BadgeIcon.bug
-            BadgeIcon.checkmark
-            BadgeIcon.email
-            BadgeIcon.error
-            BadgeIcon.featureRequest
-            BadgeIcon.languageSettings
-            BadgeIcon.lightbulb
-            BadgeIcon.multicolorPalette
-            BadgeIcon.person
-            BadgeIcon.privacy
-            BadgeIcon.prominentAlert
-            BadgeIcon.prominentCheckmark
-            BadgeIcon.prominentError
-            BadgeIcon.redHeart
-            BadgeIcon.safari
-            BadgeIcon.share
-            BadgeIcon.yellowStar
-        }
-        .padding(50)
+    List {
+        item(BadgeIcon.alert, "alert")
+        item(BadgeIcon.appStore, "appStore")
+        item(BadgeIcon.bug, "bug")
+        item(BadgeIcon.checkmark, "checkmark")
+        item(BadgeIcon.email, "email")
+        item(BadgeIcon.error, "error")
+        item(BadgeIcon.featureRequest, "featureRequest")
+        item(BadgeIcon.languageSettings, "languageSettings")
+        item(BadgeIcon.lightbulb, "lightbulb")
+        item(BadgeIcon.multicolorPalette, "multicolorPalette")
+        item(BadgeIcon.person, "person")
+        item(BadgeIcon.privacy, "privacy")
+        item(BadgeIcon.prominentAlert, "prominentAlert")
+        item(BadgeIcon.prominentCheckmark, "prominentCheckmark")
+        item(BadgeIcon.prominentError, "prominentError")
+        item(BadgeIcon.redHeart, "redHeart")
+        item(BadgeIcon.safari, "safari")
+        item(BadgeIcon.share, "share")
+        item(BadgeIcon.yellowStar, "yellowStar")
     }
+    .previewLayout(.sizeThatFits)
 }
 #endif
