@@ -276,34 +276,53 @@ private extension View {
     }
 }
 
-#Preview {
-    VStack {
-        BadgeIcon.checkmark
-            .frame(width: 14)
+@ViewBuilder
+private func previewItems() -> some View {
+    item(BadgeIcon.alert, "alert")
+    item(BadgeIcon.appStore, "appStore")
+    item(BadgeIcon.bug, "bug")
+    item(BadgeIcon.checkmark, "checkmark")
+    item(BadgeIcon.email, "email")
+    item(BadgeIcon.error, "error")
+    item(BadgeIcon.featureRequest, "featureRequest")
+    item(BadgeIcon.languageSettings, "languageSettings")
+    item(BadgeIcon.lightbulb, "lightbulb")
+    item(BadgeIcon.palette, "multicolorPalette")
+    item(BadgeIcon.person, "person")
+    item(BadgeIcon.privacy, "privacy")
+    item(BadgeIcon.prominentAlert, "prominentAlert")
+    item(BadgeIcon.prominentCheckmark, "prominentCheckmark")
+    item(BadgeIcon.prominentError, "prominentError")
+    item(BadgeIcon.redHeart, "redHeart")
+    item(BadgeIcon.safari, "safari")
+    item(BadgeIcon.share, "share")
+    item(BadgeIcon.yellowStar, "yellowStar")
+}
+
+#Preview("List") {
+    List {
+        previewItems()
+    }
+    .previewDisplayName("List")
+}
+
+#Preview("Grid") {
+    
+    struct Preview: View {
         
-        List {
-            item(BadgeIcon.alert, "alert")
-            item(BadgeIcon.appStore, "appStore")
-            item(BadgeIcon.bug, "bug")
-            item(BadgeIcon.checkmark, "checkmark")
-            item(BadgeIcon.email, "email")
-            item(BadgeIcon.error, "error")
-            item(BadgeIcon.featureRequest, "featureRequest")
-            item(BadgeIcon.languageSettings, "languageSettings")
-            item(BadgeIcon.lightbulb, "lightbulb")
-            item(BadgeIcon.palette, "multicolorPalette")
-            item(BadgeIcon.person, "person")
-            item(BadgeIcon.privacy, "privacy")
-            item(BadgeIcon.prominentAlert, "prominentAlert")
-            item(BadgeIcon.prominentCheckmark, "prominentCheckmark")
-            item(BadgeIcon.prominentError, "prominentError")
-            item(BadgeIcon.redHeart, "redHeart")
-            item(BadgeIcon.safari, "safari")
-            item(BadgeIcon.share, "share")
-            item(BadgeIcon.yellowStar, "yellowStar")
+        var body: some View {
+            ScrollView(.vertical) {
+                LazyVGrid(columns: [.init(.adaptive(minimum: 40, maximum: 50))]) {
+                    previewItems()
+                }
+                .padding()
+            }
+            .labelStyle(.iconOnly)
+            .previewDisplayName("List")
         }
     }
-    .previewLayout(.sizeThatFits)
+    
+    return Preview()
 }
 
 private func item<ViewType: View>(
