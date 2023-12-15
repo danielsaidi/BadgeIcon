@@ -24,9 +24,12 @@ public struct BadgeIcon: View {
        - iconGradient: Whether or not to add a gradient to the icon color, by default `true`.
        - iconOffset: The icon offset, by default `.zero`.
        - iconPadding: The icon padding, by default `5`.
+       - iconRenderingMode: The icon symbol rendering mode, by default `.monochrome`.
        - badgeColor: The badge color, by default `.white`.
+       - badgeCornerRadius: The badge corner radius, by default calculated.
        - badgeGradient: Whether or not to add a gradient to the icon color, by default `true`.
        - badgeStrokeColor: The badge stroke color, if any.
+       - badgeStrokeWidth: The badge stroke width, by default `1`.
        - size: The badge size, by default `32`.
      */
     public init(
@@ -38,8 +41,10 @@ public struct BadgeIcon: View {
         iconPadding: Double = 5,
         iconRenderingMode: SymbolRenderingMode = .monochrome,
         badgeColor: Color = .white,
+        badgeCornerRadius: Double? = nil,
         badgeGradient: Bool = true,
         badgeStrokeColor: Color? = nil,
+        badgeStrokeWidth: Double = 1,
         size: Double = 32
     ) {
         let whiteBadge = badgeColor == .white
@@ -58,8 +63,10 @@ public struct BadgeIcon: View {
         self.iconPadding = iconPadding
         self.iconRenderingMode = iconRenderingMode
         self.badgeColor = badgeColor
+        self.badgeCornerRadius = badgeCornerRadius
         self.badgeGradient = badgeGradient
         self.badgeStrokeColor = badgeStrokeColor ?? fallbackStroke
+        self.badgeStrokeWidth = badgeStrokeWidth
         self.size = size
     }
 
@@ -71,24 +78,39 @@ public struct BadgeIcon: View {
     public var iconPadding: Double
     public var iconRenderingMode: SymbolRenderingMode
     public var badgeColor: Color
+    public var badgeCornerRadius: Double?
     public var badgeGradient: Bool
     public var badgeStrokeColor: Color
+    public var badgeStrokeWidth: Double
     public var size: Double
 
     public var body: some View {
-        ZStack {
+        GeometryReader { geo in
             badge(badgeColor, gradient: badgeGradient)
-                .withStrokeColor(badgeStrokeColor)
+                .cornerRadius(cornerRadius(for: geo))
+                .overlay(
+                    RoundedRectangle(cornerRadius: cornerRadius(for: geo))
+                        .stroke(badgeStrokeColor, lineWidth: 1)
+                )
                 .aspectRatio(1, contentMode: .fit)
-                
-            icon.resizable()
-                .aspectRatio(contentMode: .fit)
-                .symbolRenderingMode(iconRenderingMode)
-                .symbolVariant(iconFill ? .fill : .none)
-                .padding(iconPadding)
-                .offset(x: iconOffset.x, y: iconOffset.y)
-                .foregroundColor(iconColor, gradientIf: iconGradient)
-        }.frame(width: size, height: size)
+                .overlay(
+                    icon.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .symbolRenderingMode(iconRenderingMode)
+                        .symbolVariant(iconFill ? .fill : .none)
+                        .padding(iconPadding)
+                        .offset(x: iconOffset.x, y: iconOffset.y)
+                        .foregroundColor(iconColor, gradientIf: iconGradient)
+                )
+                .frame(width: size, height: size)
+        }
+    }
+}
+
+extension BadgeIcon {
+    
+    func cornerRadius(for geo: GeometryProxy) -> Double {
+        badgeCornerRadius ?? 0.3 * geo.size.width
     }
 }
 
