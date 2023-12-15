@@ -23,14 +23,13 @@ public struct BadgeIcon: View {
        - iconFill: The icon fill mode, by default `true`.
        - iconGradient: Whether or not to add a gradient to the icon color, by default `true`.
        - iconOffset: The icon offset, by default `.zero`.
-       - iconPadding: The icon padding, by default `5`.
+       - iconPadding: The icon padding, by default calculated at runtime.
        - iconRenderingMode: The icon symbol rendering mode, by default `.monochrome`.
        - badgeColor: The badge color, by default `.white`.
-       - badgeCornerRadius: The badge corner radius, by default calculated.
+       - badgeCornerRadius: The badge corner radius, by default calculated at runtime.
        - badgeGradient: Whether or not to add a gradient to the icon color, by default `true`.
        - badgeStrokeColor: The badge stroke color, if any.
        - badgeStrokeWidth: The badge stroke width, by default `1`.
-       - size: The badge size, by default `32`.
      */
     public init(
         icon: Image,
@@ -38,14 +37,13 @@ public struct BadgeIcon: View {
         iconFill: Bool = true,
         iconGradient: Bool = true,
         iconOffset: CGPoint = .zero,
-        iconPadding: Double = 5,
+        iconPadding: Double? = nil,
         iconRenderingMode: SymbolRenderingMode = .monochrome,
         badgeColor: Color = .white,
         badgeCornerRadius: Double? = nil,
         badgeGradient: Bool = true,
         badgeStrokeColor: Color? = nil,
-        badgeStrokeWidth: Double = 1,
-        size: Double = 32
+        badgeStrokeWidth: Double = 1
     ) {
         let whiteBadge = badgeColor == .white
         let whiteBadgeStroke = Color.hex(0xe7e7e7)
@@ -67,7 +65,6 @@ public struct BadgeIcon: View {
         self.badgeGradient = badgeGradient
         self.badgeStrokeColor = badgeStrokeColor ?? fallbackStroke
         self.badgeStrokeWidth = badgeStrokeWidth
-        self.size = size
     }
 
     public var icon: Image
@@ -75,35 +72,36 @@ public struct BadgeIcon: View {
     public var iconGradient: Bool
     public var iconFill: Bool
     public var iconOffset: CGPoint
-    public var iconPadding: Double
+    public var iconPadding: Double?
     public var iconRenderingMode: SymbolRenderingMode
     public var badgeColor: Color
     public var badgeCornerRadius: Double?
     public var badgeGradient: Bool
     public var badgeStrokeColor: Color
     public var badgeStrokeWidth: Double
-    public var size: Double
 
     public var body: some View {
         GeometryReader { geo in
-            badge(badgeColor, gradient: badgeGradient)
-                .cornerRadius(cornerRadius(for: geo))
-                .overlay(
-                    RoundedRectangle(cornerRadius: cornerRadius(for: geo))
-                        .stroke(badgeStrokeColor, lineWidth: 1)
-                )
-                .aspectRatio(1, contentMode: .fit)
-                .overlay(
-                    icon.resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .symbolRenderingMode(iconRenderingMode)
-                        .symbolVariant(iconFill ? .fill : .none)
-                        .padding(iconPadding)
-                        .offset(x: iconOffset.x, y: iconOffset.y)
-                        .foregroundColor(iconColor, gradientIf: iconGradient)
-                )
-                .frame(width: size, height: size)
+            ZStack(alignment: .center) {
+                badge(badgeColor, gradient: badgeGradient)
+                    .cornerRadius(cornerRadius(for: geo))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: cornerRadius(for: geo))
+                            .stroke(badgeStrokeColor, lineWidth: 1)
+                    )
+                    .aspectRatio(1, contentMode: .fit)
+                    .overlay(
+                        icon.resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .symbolRenderingMode(iconRenderingMode)
+                            .symbolVariant(iconFill ? .fill : .none)
+                            .padding(iconPadding(for: geo))
+                            .offset(x: iconOffset.x, y: iconOffset.y)
+                            .foregroundColor(iconColor, gradientIf: iconGradient)
+                    )
+            }
         }
+        .aspectRatio(1, contentMode: .fit)
     }
 }
 
@@ -111,6 +109,10 @@ extension BadgeIcon {
     
     func cornerRadius(for geo: GeometryProxy) -> Double {
         badgeCornerRadius ?? 0.3 * geo.size.width
+    }
+    
+    func iconPadding(for geo: GeometryProxy) -> Double {
+        badgeCornerRadius ?? 0.17 * geo.size.width
     }
 }
 
@@ -275,27 +277,31 @@ private extension View {
 }
 
 #Preview {
-    
-    List {
-        item(BadgeIcon.alert, "alert")
-        item(BadgeIcon.appStore, "appStore")
-        item(BadgeIcon.bug, "bug")
-        item(BadgeIcon.checkmark, "checkmark")
-        item(BadgeIcon.email, "email")
-        item(BadgeIcon.error, "error")
-        item(BadgeIcon.featureRequest, "featureRequest")
-        item(BadgeIcon.languageSettings, "languageSettings")
-        item(BadgeIcon.lightbulb, "lightbulb")
-        item(BadgeIcon.palette, "multicolorPalette")
-        item(BadgeIcon.person, "person")
-        item(BadgeIcon.privacy, "privacy")
-        item(BadgeIcon.prominentAlert, "prominentAlert")
-        item(BadgeIcon.prominentCheckmark, "prominentCheckmark")
-        item(BadgeIcon.prominentError, "prominentError")
-        item(BadgeIcon.redHeart, "redHeart")
-        item(BadgeIcon.safari, "safari")
-        item(BadgeIcon.share, "share")
-        item(BadgeIcon.yellowStar, "yellowStar")
+    VStack {
+        BadgeIcon.checkmark
+            .frame(width: 14)
+        
+        List {
+            item(BadgeIcon.alert, "alert")
+            item(BadgeIcon.appStore, "appStore")
+            item(BadgeIcon.bug, "bug")
+            item(BadgeIcon.checkmark, "checkmark")
+            item(BadgeIcon.email, "email")
+            item(BadgeIcon.error, "error")
+            item(BadgeIcon.featureRequest, "featureRequest")
+            item(BadgeIcon.languageSettings, "languageSettings")
+            item(BadgeIcon.lightbulb, "lightbulb")
+            item(BadgeIcon.palette, "multicolorPalette")
+            item(BadgeIcon.person, "person")
+            item(BadgeIcon.privacy, "privacy")
+            item(BadgeIcon.prominentAlert, "prominentAlert")
+            item(BadgeIcon.prominentCheckmark, "prominentCheckmark")
+            item(BadgeIcon.prominentError, "prominentError")
+            item(BadgeIcon.redHeart, "redHeart")
+            item(BadgeIcon.safari, "safari")
+            item(BadgeIcon.share, "share")
+            item(BadgeIcon.yellowStar, "yellowStar")
+        }
     }
     .previewLayout(.sizeThatFits)
 }
