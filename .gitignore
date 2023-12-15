@@ -1,18 +1,4 @@
-# SPM defaults
-.DS_Store
-/.build
-/Packages
+.build/
 .swiftpm/
-
-# Documentation
-Docs
-documentation
-downloads
-videos
-
-# Fastlane
-Fastlane/report.xml
-Fastlane/Preview.html
-Fastlane/screenshots
-Fastlane/test_output
-Fastlane/README.md
+Demo/
+Fastlane/
