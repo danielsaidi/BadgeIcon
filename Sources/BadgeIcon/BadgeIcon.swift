@@ -6,7 +6,6 @@
 //  Copyright © 2023 Daniel Saidi. All rights reserved.
 //
 
-#if os(iOS) || os(macOS)
 import SwiftUI
 
 /**
@@ -113,12 +112,11 @@ public extension BadgeIcon {
         .symbolRenderingMode(.multicolor)
     }
     
-    static var checkmark: some View {
+    static var checkmark: Self {
         BadgeIcon(
             icon: .symbol("checkmark.circle"),
             iconColor: .green
         )
-        .fontWeight(.semibold)
     }
     
     static var email: Self {
@@ -136,7 +134,7 @@ public extension BadgeIcon {
         )
     }
     
-    static var featureRequest: some View {
+    static var featureRequest: Self {
         BadgeIcon(
             icon: .symbol("gift"),
             iconColor: .pink
@@ -150,14 +148,14 @@ public extension BadgeIcon {
         )
     }
     
-    static var lightbulb: some View {
+    static var lightbulb: Self {
         BadgeIcon(
             icon: .symbol("lightbulb"),
             iconColor: .yellow
         )
     }
     
-    static var multicolorPalette: some View {
+    static var palette: some View {
         BadgeIcon(
             icon: .symbol("paintpalette"),
             iconColor: nil
@@ -171,12 +169,11 @@ public extension BadgeIcon {
         )
     }
     
-    static var privacy: some View {
+    static var privacy: Self {
         BadgeIcon(
             icon: .symbol("checkmark.shield.fill"),
             iconColor: .green
         )
-        .symbolRenderingMode(.multicolor)
     }
     
     static func prominent(
@@ -221,12 +218,11 @@ public extension BadgeIcon {
         )
     }
     
-    static var safari: some View {
+    static var safari: Self {
         BadgeIcon(
             icon: .symbol("safari"),
             iconColor: .blue
         )
-        .symbolRenderingMode(.multicolor)
     }
     
     static var share: Self {
@@ -290,16 +286,6 @@ private extension View {
     }
 }
 
-private func item<ViewType: View>(
-    _ view: ViewType,
-    _ name: String
-) -> some View {
-    Label(
-        title: { Text(name) },
-        icon: { view }
-    )
-}
-
 #Preview {
     
     List {
@@ -312,7 +298,7 @@ private func item<ViewType: View>(
         item(BadgeIcon.featureRequest, "featureRequest")
         item(BadgeIcon.languageSettings, "languageSettings")
         item(BadgeIcon.lightbulb, "lightbulb")
-        item(BadgeIcon.multicolorPalette, "multicolorPalette")
+        item(BadgeIcon.palette, "multicolorPalette")
         item(BadgeIcon.person, "person")
         item(BadgeIcon.privacy, "privacy")
         item(BadgeIcon.prominentAlert, "prominentAlert")
@@ -325,4 +311,13 @@ private func item<ViewType: View>(
     }
     .previewLayout(.sizeThatFits)
 }
-#endif
+
+private func item<ViewType: View>(
+    _ view: ViewType,
+    _ name: String
+) -> some View {
+    Label(
+        title: { Text(name) },
+        icon: { view }
+    )
+}
