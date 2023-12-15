@@ -181,23 +181,36 @@ public extension BadgeIcon {
         .symbolRenderingMode(.multicolor)
     }
     
-    static var prominentAlert: Self {
+    static func prominent(
+        icon: Image,
+        iconColor: Color = .white,
+        iconPadding: Double = 6,
+        badgeColor: Color
+    ) -> Self {
         .init(
+            icon: icon,
+            iconColor: iconColor,
+            iconPadding: iconPadding,
+            badgeColor: badgeColor
+        )
+    }
+    
+    static var prominentAlert: Self {
+        .prominent(
             icon: .symbol("exclamationmark.triangle"),
             badgeColor: .orange
         )
     }
     
-    static var prominentCheckmark: some View {
-        BadgeIcon(
+    static var prominentCheckmark: Self {
+        .prominent(
             icon: .symbol("checkmark.circle"),
             badgeColor: .green
         )
-        .fontWeight(.semibold)
     }
     
     static var prominentError: Self {
-        .init(
+        .prominent(
             icon: .symbol("exclamationmark.triangle"),
             badgeColor: .red
         )
