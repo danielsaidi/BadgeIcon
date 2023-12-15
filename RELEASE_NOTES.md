@@ -3,4 +3,4 @@
 
 ## 0.1
 
-TBD
+This first version adds a first draft of the badge icon, with some predefined types.
