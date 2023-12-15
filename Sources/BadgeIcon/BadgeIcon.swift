@@ -23,10 +23,11 @@ public struct BadgeIcon: View {
        - icon: The image to use.
        - iconColor: The icon color, by default `semi-black` or `white`.
        - iconFill: The icon fill mode, by default `true`.
-       - iconGradient: The icon gradient mode, by default `true`.
+       - iconGradient: Whether or not to add a gradient to the icon color, by default `true`.
        - iconOffset: The icon offset, by default `.zero`.
        - iconPadding: The icon padding, by default `5`.
        - badgeColor: The badge color, by default `.white`.
+       - badgeGradient: Whether or not to add a gradient to the icon color, by default `true`.
        - badgeStrokeColor: The badge stroke color, if any.
        - size: The badge size, by default `32`.
      */
@@ -38,6 +39,7 @@ public struct BadgeIcon: View {
         iconOffset: CGPoint = .zero,
         iconPadding: Double = 5,
         badgeColor: Color = .white,
+        badgeGradient: Bool = true,
         badgeStrokeColor: Color? = nil,
         size: Double = 32
     ) {
@@ -53,24 +55,25 @@ public struct BadgeIcon: View {
         self.iconOffset = iconOffset
         self.iconPadding = iconPadding
         self.badgeColor = badgeColor
+        self.badgeGradient = badgeGradient
         self.badgeStrokeColor = badgeStrokeColor ?? fallbackStroke
         self.size = size
     }
 
     private let icon: Image
-    private let badgeColor: Color
-    private let badgeStrokeColor: Color
     private let iconColor: Color?
     private let iconGradient: Bool
     private let iconFill: Bool
     private let iconOffset: CGPoint
     private let iconPadding: Double
+    private let badgeColor: Color
+    private let badgeGradient: Bool
+    private let badgeStrokeColor: Color
     private let size: Double
 
     public var body: some View {
         ZStack {
-            badgeColor
-                .asGradientBackground()
+            badge(badgeColor, gradient: badgeGradient)
                 .withStrokeColor(badgeStrokeColor)
                 .aspectRatio(1, contentMode: .fit)
                 
@@ -216,6 +219,18 @@ private extension Color {
 
 @available(iOS 16.0, macOS 13.0, *)
 private extension View {
+    
+    @ViewBuilder
+    func badge(
+        _ color: Color,
+        gradient condition: Bool
+    ) -> some View {
+        if condition {
+            color.overlay(color.gradient)
+        } else {
+            color
+        }
+    }
     
     @ViewBuilder
     func foregroundColor(
