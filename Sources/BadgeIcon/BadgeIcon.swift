@@ -63,16 +63,16 @@ public struct BadgeIcon: View {
         self.size = size
     }
 
-    private let icon: Image
-    private let iconColor: Color?
-    private let iconGradient: Bool
-    private let iconFill: Bool
-    private let iconOffset: CGPoint
-    private let iconPadding: Double
-    private let badgeColor: Color
-    private let badgeGradient: Bool
-    private let badgeStrokeColor: Color
-    private let size: Double
+    public var icon: Image
+    public var iconColor: Color?
+    public var iconGradient: Bool
+    public var iconFill: Bool
+    public var iconOffset: CGPoint
+    public var iconPadding: Double
+    public var badgeColor: Color
+    public var badgeGradient: Bool
+    public var badgeStrokeColor: Color
+    public var size: Double
 
     public var body: some View {
         ZStack {
