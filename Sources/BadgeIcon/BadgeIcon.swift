@@ -36,6 +36,7 @@ public struct BadgeIcon: View {
         iconGradient: Bool = true,
         iconOffset: CGPoint = .zero,
         iconPadding: Double = 5,
+        iconRenderingMode: SymbolRenderingMode = .monochrome,
         badgeColor: Color = .white,
         badgeGradient: Bool = true,
         badgeStrokeColor: Color? = nil,
@@ -55,6 +56,7 @@ public struct BadgeIcon: View {
         self.iconGradient = iconGradient
         self.iconOffset = iconOffset
         self.iconPadding = iconPadding
+        self.iconRenderingMode = iconRenderingMode
         self.badgeColor = badgeColor
         self.badgeGradient = badgeGradient
         self.badgeStrokeColor = badgeStrokeColor ?? fallbackStroke
@@ -67,6 +69,7 @@ public struct BadgeIcon: View {
     public var iconFill: Bool
     public var iconOffset: CGPoint
     public var iconPadding: Double
+    public var iconRenderingMode: SymbolRenderingMode
     public var badgeColor: Color
     public var badgeGradient: Bool
     public var badgeStrokeColor: Color
@@ -80,6 +83,7 @@ public struct BadgeIcon: View {
                 
             icon.resizable()
                 .aspectRatio(contentMode: .fit)
+                .symbolRenderingMode(iconRenderingMode)
                 .symbolVariant(iconFill ? .fill : .none)
                 .padding(iconPadding)
                 .offset(x: iconOffset.x, y: iconOffset.y)
@@ -105,11 +109,11 @@ public extension BadgeIcon {
         )
     }
     
-    static var bug: some View {
+    static var bug: Self {
         BadgeIcon(
-            icon: .symbol("ladybug")
+            icon: .symbol("ladybug"),
+            iconRenderingMode: .multicolor
         )
-        .symbolRenderingMode(.multicolor)
     }
     
     static var checkmark: Self {
@@ -155,12 +159,12 @@ public extension BadgeIcon {
         )
     }
     
-    static var palette: some View {
+    static var palette: Self {
         BadgeIcon(
             icon: .symbol("paintpalette"),
-            iconColor: nil
+            iconColor: nil,
+            iconRenderingMode: .multicolor
         )
-        .symbolRenderingMode(.multicolor)
     }
     
     static var person: Self {
