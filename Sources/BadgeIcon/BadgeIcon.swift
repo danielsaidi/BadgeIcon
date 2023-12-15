@@ -94,91 +94,67 @@ public struct BadgeIcon: View {
 
 public extension BadgeIcon {
     
-    static var alert: Self {
-        .init(
-            icon: .symbol("exclamationmark.triangle"),
-            iconColor: .orange
-        )
-    }
+    static var alert = Self(
+        icon: .symbol("exclamationmark.triangle"),
+        iconColor: .orange
+    )
     
-    static var appStore: Self {
-        .init(
-            icon: Image(systemName: "apple.logo"),
-            iconColor: .white.opacity(0.6),
-            badgeColor: .black.opacity(0.9)
-        )
-    }
+    static var appStore = Self(
+        icon: Image(systemName: "apple.logo"),
+        iconColor: .white.opacity(0.6),
+        badgeColor: .black.opacity(0.9)
+    )
     
-    static var bug: Self {
-        BadgeIcon(
-            icon: .symbol("ladybug"),
-            iconRenderingMode: .multicolor
-        )
-    }
+    static var bug = Self(
+        icon: .symbol("ladybug"),
+        iconRenderingMode: .multicolor
+    )
     
-    static var checkmark: Self {
-        BadgeIcon(
-            icon: .symbol("checkmark.circle"),
-            iconColor: .green
-        )
-    }
+    static var checkmark = Self(
+        icon: .symbol("checkmark.circle"),
+        iconColor: .green
+    )
     
-    static var email: Self {
-        .init(
-            icon: .symbol("envelope"),
-            iconColor: .white,
-            badgeColor: .blue
-        )
-    }
+    static var email = Self(
+        icon: .symbol("envelope"),
+        iconColor: .white,
+        badgeColor: .blue
+    )
     
-    static var error: Self {
-        .init(
-            icon: .symbol("exclamationmark.triangle"),
-            iconColor: .red
-        )
-    }
+    static var error = Self(
+        icon: .symbol("exclamationmark.triangle"),
+        iconColor: .red
+    )
     
-    static var featureRequest: Self {
-        BadgeIcon(
-            icon: .symbol("gift"),
-            iconColor: .pink
-        )
-    }
+    static var featureRequest = Self(
+        icon: .symbol("gift"),
+        iconColor: .pink
+    )
     
-    static var languageSettings: Self {
-        .init(
-            icon: .symbol("globe"),
-            iconColor: .cyan
-        )
-    }
+    static var languageSettings = Self(
+        icon: .symbol("globe"),
+        iconColor: .cyan
+    )
     
-    static var lightbulb: Self {
-        BadgeIcon(
-            icon: .symbol("lightbulb"),
-            iconColor: .yellow
-        )
-    }
+    static var lightbulb = Self(
+        icon: .symbol("lightbulb"),
+        iconColor: .yellow
+    )
     
-    static var palette: Self {
-        BadgeIcon(
-            icon: .symbol("paintpalette"),
-            iconColor: nil,
-            iconRenderingMode: .multicolor
-        )
-    }
+    static var palette = Self(
+        icon: .symbol("paintpalette"),
+        iconColor: nil,
+        iconRenderingMode: .multicolor
+    )
     
-    static var person: Self {
-        .init(
-            icon: .symbol("person")
-        )
-    }
+    static var person = Self(
+        icon: .symbol("person")
+    )
     
-    static var privacy: Self {
-        BadgeIcon(
-            icon: .symbol("checkmark.shield.fill"),
-            iconColor: .green
-        )
-    }
+    static var privacy = Self(
+        icon: .symbol("checkmark.shield.fill"),
+        iconColor: .green
+    )
     
     static func prominent(
         icon: Image,
@@ -194,55 +170,41 @@ public extension BadgeIcon {
         )
     }
     
-    static var prominentAlert: Self {
-        .prominent(
-            icon: .symbol("exclamationmark.triangle"),
-            badgeColor: .orange
-        )
-    }
+    static var prominentAlert = prominent(
+        icon: .symbol("exclamationmark.triangle"),
+        badgeColor: .orange
+    )
     
-    static var prominentCheckmark: Self {
-        .prominent(
-            icon: .symbol("checkmark.circle"),
-            badgeColor: .green
-        )
-    }
+    static var prominentCheckmark = prominent(
+        icon: .symbol("checkmark.circle"),
+        badgeColor: .green
+    )
     
-    static var prominentError: Self {
-        .prominent(
-            icon: .symbol("exclamationmark.triangle"),
-            badgeColor: .red
-        )
-    }
+    static var prominentError = prominent(
+        icon: .symbol("exclamationmark.triangle"),
+        badgeColor: .red
+    )
     
-    static var redHeart: Self {
-        .init(
-            icon: .symbol("heart"),
-            iconColor: .red
-        )
-    }
+    static var redHeart = Self(
+        icon: .symbol("heart"),
+        iconColor: .red
+    )
     
-    static var safari: Self {
-        BadgeIcon(
-            icon: .symbol("safari"),
-            iconColor: .blue
-        )
-    }
+    static var safari = Self(
+        icon: .symbol("safari"),
+        iconColor: .blue
+    )
     
-    static var share: Self {
-        .init(
-            icon: .symbol("square.and.arrow.up"),
-            iconFill: false,
-            iconOffset: .init(x: 0, y: -1)
-        )
-    }
+    static var share = Self(
+        icon: .symbol("square.and.arrow.up"),
+        iconFill: false,
+        iconOffset: .init(x: 0, y: -1)
+    )
     
-    static var yellowStar: Self {
-        .init(
-            icon: .symbol("star"),
-            iconColor: .yellow
-        )
-    }
+    static var yellowStar = Self(
+        icon: .symbol("star"),
+        iconColor: .yellow
+    )
 }
 
 private extension Color {
