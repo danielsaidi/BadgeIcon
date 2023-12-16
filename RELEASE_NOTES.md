@@ -1,6 +1,17 @@
 # Release Notes
 
 
+## 0.2.1
+
+This version adds more icons and features. 
+
+### ✨ Features
+
+* `BadgeIcon` has even more predefined icons.
+* `BadgeIcon` has a new `iconColorScheme` parameter.
+
+
+
 ## 0.2
 
 This version adds more functionality to the `BadgeIcon`.

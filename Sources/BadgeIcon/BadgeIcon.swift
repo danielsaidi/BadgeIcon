@@ -20,6 +20,7 @@ public struct BadgeIcon: View {
      - Parameters:
        - icon: The image to use.
        - iconColor: The icon color, by default `semi-black` or `white`.
+       - iconColorScheme: The icon color scheme, by default `nil`.
        - iconFill: The icon fill mode, by default `true`.
        - iconGradient: Whether or not to add a gradient to the icon color, by default `true`.
        - iconOffset: The icon offset, by default `.zero`.
@@ -34,6 +35,7 @@ public struct BadgeIcon: View {
     public init(
         icon: Image,
         iconColor: Color? = nil,
+        iconColorScheme: ColorScheme? = nil,
         iconFill: Bool = true,
         iconGradient: Bool = true,
         iconOffset: CGPoint = .zero,
@@ -55,6 +57,7 @@ public struct BadgeIcon: View {
         
         self.icon = icon
         self.iconColor = iconColor ?? fallbackIconColor
+        self.iconColorScheme = iconColorScheme
         self.iconFill = iconFill
         self.iconGradient = iconGradient
         self.iconOffset = iconOffset
@@ -69,6 +72,7 @@ public struct BadgeIcon: View {
 
     public var icon: Image
     public var iconColor: Color?
+    public var iconColorScheme: ColorScheme?
     public var iconGradient: Bool
     public var iconFill: Bool
     public var iconOffset: CGPoint
@@ -79,6 +83,9 @@ public struct BadgeIcon: View {
     public var badgeGradient: Bool
     public var badgeStrokeColor: Color
     public var badgeStrokeWidth: Double
+    
+    @Environment(\.colorScheme)
+    private var colorScheme
 
     public var body: some View {
         GeometryReader { geo in
@@ -92,6 +99,7 @@ public struct BadgeIcon: View {
                     .aspectRatio(1, contentMode: .fit)
                     .overlay(
                         icon.resizable()
+                            .environment(\.colorScheme, iconColorScheme ?? colorScheme)
                             .aspectRatio(contentMode: .fit)
                             .symbolRenderingMode(iconRenderingMode)
                             .symbolVariant(iconFill ? .fill : .none)
@@ -118,6 +126,17 @@ extension BadgeIcon {
 
 public extension BadgeIcon {
     
+    static var accessibility = Self(
+        icon: .symbol("accessibility"),
+        iconFill: false,
+        badgeColor: .blue
+    )
+    
+    static var airplaneMode = Self(
+        icon: .symbol("airplane"),
+        badgeColor: .orange
+    )
+    
     static var alert = Self(
         icon: .symbol("exclamationmark.triangle"),
         iconColor: .orange
@@ -127,6 +146,11 @@ public extension BadgeIcon {
         icon: Image(systemName: "apple.logo"),
         iconColor: .white.opacity(0.6),
         badgeColor: .black.opacity(0.9)
+    )
+    
+    static var battery = Self(
+        icon: Image(systemName: "battery.100percent"),
+        badgeColor: .green
     )
     
     static var bug = Self(
@@ -150,9 +174,20 @@ public extension BadgeIcon {
         iconColor: .red
     )
     
+    static var export = Self(
+        icon: .symbol("square.and.arrow.up.on.square"),
+        iconFill: false,
+        iconOffset: .init(x: 0, y: -1)
+    )
+    
     static var featureRequest = Self(
         icon: .symbol("gift"),
         iconColor: .pink
+    )
+    
+    static var heart = Self(
+        icon: .symbol("heart"),
+        iconColor: .red
     )
     
     static var languageSettings = Self(
@@ -162,7 +197,14 @@ public extension BadgeIcon {
     
     static var lightbulb = Self(
         icon: .symbol("lightbulb"),
-        iconColor: .yellow
+        iconColor: .yellow,
+        iconColorScheme: .light,
+        iconRenderingMode: .multicolor
+    )
+    
+    static var message = Self(
+        icon: .symbol("message"),
+        badgeColor: .green
     )
     
     static var palette = Self(
@@ -175,9 +217,14 @@ public extension BadgeIcon {
         icon: .symbol("person")
     )
     
+    static var phone = Self(
+        icon: .symbol("phone"),
+        badgeColor: .green
+    )
+    
     static var privacy = Self(
-        icon: .symbol("checkmark.shield.fill"),
-        iconColor: .green
+        icon: .symbol("hand.raised.fill"),
+        badgeColor: .blue
     )
     
     static func prominent(
@@ -209,14 +256,14 @@ public extension BadgeIcon {
         badgeColor: .red
     )
     
-    static var redHeart = Self(
-        icon: .symbol("heart"),
-        iconColor: .red
-    )
-    
     static var safari = Self(
         icon: .symbol("safari"),
         iconColor: .blue
+    )
+    
+    static var settings = Self(
+        icon: .symbol("gearshape"),
+        badgeColor: .gray
     )
     
     static var share = Self(
@@ -225,9 +272,19 @@ public extension BadgeIcon {
         iconOffset: .init(x: 0, y: -1)
     )
     
-    static var yellowStar = Self(
+    static var shield = Self(
+        icon: .symbol("checkmark.shield.fill"),
+        iconColor: .green
+    )
+    
+    static var star = Self(
         icon: .symbol("star"),
         iconColor: .yellow
+    )
+    
+    static var wifi = Self(
+        icon: .symbol("wifi"),
+        badgeColor: .blue
     )
 }
 
@@ -277,60 +334,85 @@ private extension View {
 }
 
 @ViewBuilder
-private func previewItems() -> some View {
-    item(BadgeIcon.alert, "alert")
-    item(BadgeIcon.appStore, "appStore")
-    item(BadgeIcon.bug, "bug")
-    item(BadgeIcon.checkmark, "checkmark")
-    item(BadgeIcon.email, "email")
-    item(BadgeIcon.error, "error")
-    item(BadgeIcon.featureRequest, "featureRequest")
-    item(BadgeIcon.languageSettings, "languageSettings")
-    item(BadgeIcon.lightbulb, "lightbulb")
-    item(BadgeIcon.palette, "multicolorPalette")
-    item(BadgeIcon.person, "person")
-    item(BadgeIcon.privacy, "privacy")
-    item(BadgeIcon.prominentAlert, "prominentAlert")
-    item(BadgeIcon.prominentCheckmark, "prominentCheckmark")
-    item(BadgeIcon.prominentError, "prominentError")
-    item(BadgeIcon.redHeart, "redHeart")
-    item(BadgeIcon.safari, "safari")
-    item(BadgeIcon.share, "share")
-    item(BadgeIcon.yellowStar, "yellowStar")
+private func previewItems(
+    selection: Binding<String?> = .constant(nil)
+) -> some View {
+    item(.accessibility, "accessibility", selection)
+    item(.airplaneMode, "airplaneMode", selection)
+    item(.alert, "alert", selection)
+    item(.appStore, "appStore", selection)
+    item(.battery, "battery", selection)
+    item(.bug, "bug", selection)
+    item(.checkmark, "checkmark", selection)
+    item(.email, "email", selection)
+    item(.error, "error", selection)
+    item(.export, "export", selection)
+    item(.featureRequest, "featureRequest", selection)
+    item(.heart, "heart", selection)
+    item(.languageSettings, "languageSettings", selection)
+    item(.lightbulb, "lightbulb", selection)
+    item(.message, "messages", selection)
+    item(.palette, "multicolorPalette", selection)
+    item(.person, "person", selection)
+    item(.phone, "phone", selection)
+    item(.privacy, "privacy", selection)
+    item(.prominentAlert, "prominentAlert", selection)
+    item(.prominentCheckmark, "prominentCheckmark", selection)
+    item(.prominentError, "prominentError", selection)
+    item(.safari, "safari", selection)
+    item(.settings, "settings", selection)
+    item(.share, "share", selection)
+    item(.shield, "shield", selection)
+    item(.star, "star", selection)
+    item(.wifi, "wifi", selection)
 }
 
-#Preview("List") {
-    List {
-        previewItems()
-    }
-    .previewDisplayName("List")
-}
-
-#Preview("Grid") {
+#Preview {
     
-    struct Preview: View {
+    struct GridPreview: View {
+        
+        @State
+        private var selection: String?
         
         var body: some View {
-            ScrollView(.vertical) {
-                LazyVGrid(columns: [.init(.adaptive(minimum: 40, maximum: 50))]) {
-                    previewItems()
+            VStack {
+                if let selection {
+                    Text("Selection: " + selection)
+                        .padding()
+                        .background(Color.yellow)
+                        .cornerRadius(10)
                 }
-                .padding()
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: [.init(.adaptive(minimum: 40, maximum: 50))]) {
+                        previewItems(selection: $selection)
+                    }
+                    .padding()
+                }
             }
             .labelStyle(.iconOnly)
             .previewDisplayName("List")
         }
     }
     
-    return Preview()
+    return VStack(spacing: 0) {
+        GridPreview()
+            .frame(height: 220)
+        List {
+            previewItems()
+        }
+    }
 }
 
-private func item<ViewType: View>(
-    _ view: ViewType,
-    _ name: String
+private func item(
+    _ view: BadgeIcon,
+    _ name: String,
+    _ selection: Binding<String?>
 ) -> some View {
     Label(
         title: { Text(name) },
         icon: { view }
     )
+    .onTapGesture {
+        selection.wrappedValue = name
+    }
 }
