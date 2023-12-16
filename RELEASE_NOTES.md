@@ -10,6 +10,10 @@ This version adds more icons and features.
 * `BadgeIcon` has even more predefined icons.
 * `BadgeIcon` has a new `iconColorScheme` parameter.
 
+### 🐛 Bug Fixes
+
+* `BadgeIcon` now honors custom stroke widths.
+
 
 
 ## 0.2
@@ -24,7 +28,7 @@ This version adds more functionality to the `BadgeIcon`.
 
 ### 💥 Breaking Changes
 
-* `BadgeIcon` doesn't have a size property anymore, but will automatically adjust .
+* `BadgeIcon` doesn't have a size property anymore, but will automatically adjust.
 
 
 
