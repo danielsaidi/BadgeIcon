@@ -105,7 +105,7 @@ public struct BadgeIcon: View {
                             .symbolVariant(iconFill ? .fill : .none)
                             .padding(iconPadding(for: geo))
                             .offset(x: iconOffset.x, y: iconOffset.y)
-                            .foregroundColor(iconColor, gradientIf: iconGradient)
+                            .foreground(iconColor, gradient: iconGradient)
                     )
             }
         }
@@ -310,26 +310,17 @@ private extension View {
     }
     
     @ViewBuilder
-    func foregroundColor(
+    func foreground(
         _ color: Color?,
-        gradientIf condition: Bool
+        gradient: Bool
     ) -> some View {
-        if let color, condition {
+        if let color, gradient {
             self.foregroundStyle(color.gradient)
         } else if let color {
             self.foregroundStyle(color)
         } else {
             self
         }
-    }
-    
-    @ViewBuilder
-    func withStrokeColor(
-        _ color: Color
-    ) -> some View {
-        self.cornerRadius(7)
-            .padding(0.6)
-            .background(color.cornerRadius(7.6))
     }
 }
 
