@@ -236,6 +236,7 @@ private func previewItems(
     return VStack(spacing: 0) {
         GridPreview()
             .frame(height: 220)
+            .padding(.bottom, 40)
         List {
             previewItems()
         }
