@@ -19,7 +19,7 @@ BadgeIcon lets you create badge icons that look like the ones you find in iOS an
 BadgeIcon comes with a bunch of predefined icons:
 
 <p align="center">
-    <img src ="Resources/Preview.png" alt="BadgeIcon Preview" title="BadgeIcon Preview" />
+    <img src ="Resources/Preview_Grid.png" alt="BadgeIcon Preview" title="BadgeIcon Preview" />
 </p>
 
 You can also create your own icons, with rich icon and badge customization options. 
