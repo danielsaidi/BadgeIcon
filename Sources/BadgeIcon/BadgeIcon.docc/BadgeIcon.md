@@ -38,18 +38,18 @@ BadgeIcon has some predefined icon types:
 * ``BadgeIcon/email``
 * ``BadgeIcon/error``
 * ``BadgeIcon/featureRequest``
+* ``BadgeIcon/heart``
 * ``BadgeIcon/languageSettings``
 * ``BadgeIcon/lightbulb``
-* ``BadgeIcon/multicolorPalette``
+* ``BadgeIcon/palette``
 * ``BadgeIcon/person``
 * ``BadgeIcon/privacy``
 * ``BadgeIcon/prominentAlert``
 * ``BadgeIcon/prominentCheckmark``
 * ``BadgeIcon/prominentError``
-* ``BadgeIcon/redHeart``
 * ``BadgeIcon/safari``
 * ``BadgeIcon/share``
-* ``BadgeIcon/yellowStar``
+* ``BadgeIcon/star``
 
 You can also create your own badge icons, with custom icon and badge styling.
 
