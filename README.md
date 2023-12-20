@@ -103,6 +103,6 @@ BadgeIcon is available under the MIT license. See the [LICENSE][License] file fo
 [Mastodon]: https://mastodon.social/@danielsaidi
 [Sponsors]: https://github.com/sponsors/danielsaidi
 
-[Documentation]: https://danielsaidi.github.io/BadgeIcon/documentation/BadgeIcon/
-[Getting-Started]: https://danielsaidi.github.io/BadgeIcon/documentation/BadgeIcon/getting-started
+[Documentation]: https://danielsaidi.github.io/BadgeIcon/documentation/badgeicon/
+[Getting-Started]: https://danielsaidi.github.io/BadgeIcon/documentation/badgeicon/getting-started
 [License]: https://github.com/danielsaidi/BadgeIcon/blob/master/LICENSE
