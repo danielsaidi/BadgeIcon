@@ -1,6 +1,24 @@
 # Release Notes
 
 
+## 0.3
+
+This version adds more icons and adjusts `BadgeIcon` to use percentage-based sizes and a smaller default padding.
+
+### ✨ Features
+
+* `BadgeIcon` has even more predefined icons.
+
+### 💡 Adjustments
+
+* `BadgeIcon` now uses `0.15` as the default icon padding.
+
+### 🐛 Bug Fixes
+
+* `BadgeIcon` now uses `iconPadding` instead of the incorrect `badgeCornerRadius`.
+
+
+
 ## 0.2.1
 
 This version adds more icons and features. 

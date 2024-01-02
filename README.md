@@ -41,27 +41,7 @@ If you prefer to not have external dependencies, you can also just copy the sour
 
 ## Getting started
 
-BadgeIcon has some predefined icon types:
-
-* `.alert`
-* `.appStore`
-* `.bug`
-* `.checkmark`
-* `.email`
-* `.error`
-* `.featureRequest`
-* `.heart`
-* `.languageSettings`
-* `.lightbulb`
-* `.palette`
-* `.person`
-* `.privacy`
-* `.prominentAlert`
-* `.prominentCheckmark`
-* `.prominentError`
-* `.safari`
-* `.share`
-* `.star`
+BadgeIcon has 30+ predefined icon types, for instance `.alert`, `.bug`, `.heart`, etc.
 
 You can also create your own badge icons, with custom icon and badge styling.
 
