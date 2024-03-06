@@ -14,7 +14,7 @@
 
 ## About BadgeIcon
 
-BadgeIcon lets you create badge icons that look like the ones you find in iOS and macOS System Settings.
+BadgeIcon is a Swift SDK that helps you mimic native System Settings icons in SwiftUI.
 
 BadgeIcon comes with a bunch of predefined icons:
 
@@ -22,7 +22,7 @@ BadgeIcon comes with a bunch of predefined icons:
     <img src ="Resources/Preview_Grid.png" alt="BadgeIcon Preview" title="BadgeIcon Preview" />
 </p>
 
-You can also create your own icons, with rich icon and badge customization options. 
+You can also create your own icons, with rich customization options. 
 
 
 
@@ -35,13 +35,22 @@ BadgeIcon can be installed with the Swift Package Manager:
 https://github.com/danielsaidi/BadgeIcon.git
 ```
 
-If you prefer to not have external dependencies, you can also just copy the source code into your app.
-
 
 
 ## Getting started
 
 BadgeIcon has 30+ predefined icon types, for instance `.alert`, `.bug`, `.heart`, etc.
+
+You can use these badges as regular images:
+
+```swift
+struct ContentView: View {
+
+    var body: some View {
+        BadgeIcon.calendar
+    }
+}
+```
 
 You can also create your own badge icons, with custom icon and badge styling.
 
@@ -49,13 +58,15 @@ You can also create your own badge icons, with custom icon and badge styling.
 
 ## Documentation
 
-The [online documentation][Documentation] has more information, code examples, etc. 
+The [online documentation][Documentation] has more information, articles, code examples, etc.
 
 
 
 ## Support my work 
 
-You can [sponsor me][Sponsors] on GitHub Sponsors or [reach out][Email] for paid support, to help support my [open-source projects][GitHub].
+You can [sponsor me][Sponsors] on GitHub Sponsors or [reach out][Email] for paid support, to help support my [open-source projects][OpenSource].
+
+Your support makes it possible for me to put more work into these projects and make them the best they can be.
 
 
 
@@ -82,6 +93,7 @@ BadgeIcon is available under the MIT license. See the [LICENSE][License] file fo
 [Twitter]: https://www.twitter.com/danielsaidi
 [Mastodon]: https://mastodon.social/@danielsaidi
 [Sponsors]: https://github.com/sponsors/danielsaidi
+[OpenSource]: https://www.danielsaidi.com/opensource
 
 [Documentation]: https://danielsaidi.github.io/BadgeIcon/documentation/badgeicon/
 [Getting-Started]: https://danielsaidi.github.io/BadgeIcon/documentation/badgeicon/getting-started

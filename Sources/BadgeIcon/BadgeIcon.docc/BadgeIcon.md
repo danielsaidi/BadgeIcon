@@ -1,11 +1,13 @@
 # ``BadgeIcon``
 
-BadgeIcon lets you create badge icons that look like the ones you find in iOS and macOS System Settings.
+BadgeIcon is a Swift SDK that helps you mimic native System Settings icons in SwiftUI.
 
 
 ## Overview
 
 ![Library logotype](Logo.png)
+
+BadgeIcon is a Swift SDK that helps you mimic native System Settings icons in SwiftUI.
 
 BadgeIcon comes with a bunch of predefined icons:
 
@@ -23,8 +25,6 @@ BadgeIcon can be installed with the Swift Package Manager:
 https://github.com/danielsaidi/BadgeIcon.git
 ```
 
-If you prefer to not have external dependencies, you can also just copy the source code into your app.
-
 
 
 ## Getting started
@@ -34,10 +34,17 @@ BadgeIcon has 30+ predefined icon types, for instance:
 * ``BadgeIcon/alert``
 * ``BadgeIcon/bug``
 * ``BadgeIcon/email``
-* ``BadgeIcon/heart``
-* ``BadgeIcon/privacy``
-* ``BadgeIcon/safari``
-* ``BadgeIcon/star``
+
+You can use these badges as regular images:
+
+```swift
+struct ContentView: View {
+
+    var body: some View {
+        BadgeIcon.calendar
+    }
+}
+```
 
 You can also create your own badge icons, with custom icon and badge styling.
 
@@ -45,13 +52,13 @@ You can also create your own badge icons, with custom icon and badge styling.
 
 ## Repository
 
-For more information, source code, etc., visit the [project repository][Repository].
+For more information, source code, etc., visit the [project repository](https://github.com/danielsaidi/BadgeIcon).
 
 
 
 ## License
 
-BadgeIcon is available under the MIT license. See the [LICENSE][License] file for more info.
+BadgeIcon is available under the MIT license.
 
 
 
@@ -60,8 +67,3 @@ BadgeIcon is available under the MIT license. See the [LICENSE][License] file fo
 ### Essentials
 
 - ``BadgeIcon/BadgeIcon``
-
-
-
-[License]: https://github.com/danielsaidi/BadgeIcon/blob/master/LICENSE
-[Repository]: https://github.com/danielsaidi/BadgeIcon

@@ -1,5 +1,18 @@
 # Release Notes
 
+BadgeIcon will use semver after 1.0. 
+
+Until then, breaking changes can happen in any version, and deprecated features may be removed in any minor version bump.
+
+
+
+## 0.4
+
+### ✨ New Features
+
+* BadgeIcon now supports visionOS.
+
+
 
 ## 0.3
 
