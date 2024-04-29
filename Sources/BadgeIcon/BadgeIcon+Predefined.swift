@@ -3,7 +3,7 @@
 //  BadgeIcon
 //
 //  Created by Daniel Saidi on 2023-12-15.
-//  Copyright © 2023 Daniel Saidi. All rights reserved.
+//  Copyright © 2023-2024 Daniel Saidi. All rights reserved.
 //
 
 import SwiftUI
@@ -19,33 +19,45 @@ public extension BadgeIcon {
     
     static var airplaneMode = Self(
         icon: .symbol("airplane"),
-        badgeColor: .orange
+        style: .init(
+            badgeColor: .orange
+        )
     )
     
     static var alert = Self(
         icon: .symbol("exclamationmark.triangle"),
-        iconColor: .orange
+        style: .init(
+            iconColor: .orange
+        )
     )
     
     static var appStore = Self(
         icon: Image(systemName: "apple.logo"),
-        iconColor: .white.opacity(0.6),
-        badgeColor: .black.opacity(0.9)
+        style: .init(
+            iconColor: .white.opacity(0.6),
+            badgeColor: .black.opacity(0.9)
+        )
     )
     
     static var battery = Self(
         icon: Image(systemName: "battery.100percent"),
-        badgeColor: .green
+        style: .init(
+            badgeColor: .green
+        )
     )
     
     static var bug = Self(
         icon: .symbol("ladybug"),
-        iconRenderingMode: .multicolor
+        style: .init(
+            iconRenderingMode: .multicolor
+        )
     )
     
     static var calendar = Self(
         icon: .symbol("calendar"),
-        iconColor: .red
+        style: .init(
+            iconColor: .red
+        )
     )
     
     static var checkmark = circular(
@@ -62,49 +74,65 @@ public extension BadgeIcon {
     ) -> Self {
         .init(
             icon: icon,
-            iconColor: iconColor,
-            iconFill: iconFill,
-            iconPadding: iconPadding ?? 0.11,
-            badgeColor: badgeColor ?? .white
+            style: .init(
+                iconColor: iconColor,
+                iconFill: iconFill,
+                iconPadding: iconPadding ?? 0.11,
+                badgeColor: badgeColor ?? .white
+            )
         )
     }
     
     static var email = Self(
         icon: .symbol("envelope"),
-        iconColor: .white,
-        badgeColor: .blue
+        style: .init(
+            iconColor: .white,
+            badgeColor: .blue
+        )
     )
     
     static var error = Self(
         icon: .symbol("exclamationmark.triangle"),
-        iconColor: .red
+        style: .init(
+            iconColor: .red
+        )
     )
     
     static var export = Self(
         icon: .symbol("square.and.arrow.up.on.square"),
-        iconFill: false,
-        iconOffset: .init(x: 0, y: -0.03),
-        iconPadding: 0.15
+        style: .init(
+            iconFill: false,
+            iconOffset: .init(x: 0, y: -0.03),
+            iconPadding: 0.15
+        )
     )
     
     static var faceId = Self(
         icon: .symbol("faceid"),
-        badgeColor: .green
+        style: .init(
+            badgeColor: .green
+        )
     )
     
     static var featureRequest = Self(
         icon: .symbol("gift"),
-        iconColor: .pink
+        style: .init(
+            iconColor: .pink
+        )
     )
     
     static var heart = Self(
         icon: .symbol("heart"),
-        iconColor: .red
+        style: .init(
+            iconColor: .red
+        )
     )
     
     static var key = Self(
         icon: .symbol("key"),
-        badgeColor: .gray
+        style: .init(
+            badgeColor: .gray
+        )
     )
     
     static var languageSettings = circular(
@@ -114,30 +142,40 @@ public extension BadgeIcon {
     
     static var lightbulb = Self(
         icon: .symbol("lightbulb"),
-        iconColor: .yellow,
-        iconColorScheme: .light,
-        iconRenderingMode: .multicolor
+        style: .init(
+            iconColor: .yellow,
+            iconColorScheme: .light,
+            iconRenderingMode: .multicolor
+        )
     )
     
     static var lock = Self(
         icon: .symbol("lock"),
-        badgeColor: .gray
+        style: .init(
+            badgeColor: .gray
+        )
     )
     
     static var message = Self(
         icon: .symbol("message"),
-        badgeColor: .green
+        style: .init(
+            badgeColor: .green
+        )
     )
     
     static var notifications = Self(
         icon: .symbol("bell.badge.fill"),
-        badgeColor: .red
+        style: .init(
+            badgeColor: .red
+        )
     )
     
     static var palette = Self(
         icon: .symbol("paintpalette"),
-        iconColor: nil,
-        iconRenderingMode: .multicolor
+        style: .init(
+            iconColor: nil,
+            iconRenderingMode: .multicolor
+        )
     )
     
     static var person = Self(
@@ -146,35 +184,47 @@ public extension BadgeIcon {
     
     static var phone = Self(
         icon: .symbol("phone"),
-        badgeColor: .green
+        style: .init(
+            badgeColor: .green
+        )
     )
     
     static var premium = Self(
         icon: .symbol("crown"),
-        iconColor: .orange
+        style: .init(
+            iconColor: .orange
+        )
     )
     
     static var privacy = Self(
         icon: .symbol("hand.raised.fill"),
-        badgeColor: .blue
+        style: .init(
+            badgeColor: .blue
+        )
     )
     
     static var prominentAlert = Self(
         icon: .symbol("exclamationmark.triangle"),
-        iconColor: .white,
-        badgeColor: .orange
+        style: .init(
+            iconColor: .white,
+            badgeColor: .orange
+        )
     )
     
     static var prominentCheckmark = Self(
         icon: .symbol("checkmark.circle"),
-        iconColor: .white,
-        badgeColor: .green
+        style: .init(
+            iconColor: .white,
+            badgeColor: .green
+        )
     )
     
     static var prominentError = Self(
         icon: .symbol("exclamationmark.triangle"),
-        iconColor: .white,
-        badgeColor: .red
+        style: .init(
+            iconColor: .white,
+            badgeColor: .red
+        )
     )
     
     static var safari = circular(
@@ -184,34 +234,46 @@ public extension BadgeIcon {
     
     static var settings = Self(
         icon: .symbol("gearshape"),
-        badgeColor: .gray
+        style: .init(
+            badgeColor: .gray
+        )
     )
     
     static var share = Self(
         icon: .symbol("square.and.arrow.up"),
-        iconFill: false,
-        iconOffset: .init(x: 0, y: -0.03),
-        iconPadding: 0.15
+        style: .init(
+            iconFill: false,
+            iconOffset: .init(x: 0, y: -0.03),
+            iconPadding: 0.15
+        )
     )
     
     static var shield = Self(
         icon: .symbol("checkmark.shield.fill"),
-        iconColor: .green
+        style: .init(
+            iconColor: .green
+        )
     )
     
     static var star = Self(
         icon: .symbol("star"),
-        iconColor: .yellow
+        style: .init(
+            iconColor: .yellow
+        )
     )
     
     static var touchId = Self(
         icon: .symbol("touchid"),
-        iconColor: .pink
+        style: .init(
+            iconColor: .pink
+        )
     )
     
     static var wifi = Self(
         icon: .symbol("wifi"),
-        badgeColor: .blue
+        style: .init(
+            badgeColor: .blue
+        )
     )
 }
 

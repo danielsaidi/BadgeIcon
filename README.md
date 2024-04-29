@@ -41,7 +41,7 @@ https://github.com/danielsaidi/BadgeIcon.git
 
 BadgeIcon has 30+ predefined icon types, for instance `.alert`, `.bug`, `.heart`, etc.
 
-You can use these badges as regular images:
+You can use these badges as regular images, which will scale to fill the available space:
 
 ```swift
 struct ContentView: View {
@@ -52,7 +52,21 @@ struct ContentView: View {
 }
 ```
 
-You can also create your own badge icons, with custom icon and badge styling.
+You can also create your own badge icons, with custom icon and badge styling:
+
+```swift
+extension BadgeIcon {
+
+    public static let prominentError = Self(
+        icon: MyCustomErrorIcon(),
+        style: .init(
+            badgeColor: .red
+        )
+    )
+}
+```
+
+You can use both `Image` values or custom views as the icon.
 
 
 

@@ -6,6 +6,18 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 0.5
+
+### ✨ New Features
+
+* `BadgeIconStyle` is a new type that is used to provide icon styling.
+
+### 🗑️ Deprecations
+
+* `BadgeIcon` has a new style-based initializer. The old initializer is deprecated.
+
+
+
 ## 0.4
 
 ### ✨ New Features
