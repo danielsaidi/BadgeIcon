@@ -16,6 +16,7 @@ Until then, breaking changes can happen in any version, and deprecated features 
 ### 🗑️ Deprecations
 
 * `BadgeIcon` has a new style-based initializer. The old initializer is deprecated.
+* `BadgeIcon.key` has been renamed to `passwords`.
 
 
 

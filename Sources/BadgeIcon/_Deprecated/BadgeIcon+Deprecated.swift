@@ -34,4 +34,10 @@ public extension BadgeIcon where Icon == Image {
             badgeStrokeWidth: badgeStrokeWidth
         )
     }
+    
+    @available(*, deprecated, renamed: "passwords")
+    static var key = Self(
+        icon: .symbol("key"),
+        style: .init(badgeColor: .gray)
+    )
 }
