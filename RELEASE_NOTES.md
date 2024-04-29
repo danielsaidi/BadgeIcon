@@ -10,6 +10,7 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 ### ✨ New Features
 
+* `BadgeIcon` now supports generic views as the main icon.
 * `BadgeIconStyle` is a new type that is used to provide icon styling.
 
 ### 🗑️ Deprecations

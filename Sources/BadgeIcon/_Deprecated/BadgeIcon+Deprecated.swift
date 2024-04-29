@@ -1,6 +1,6 @@
 import SwiftUI
 
-public extension BadgeIcon {
+public extension BadgeIcon where Icon == Image {
     
     @available(*, deprecated, renamed: "init(icon:style:)")
     init(

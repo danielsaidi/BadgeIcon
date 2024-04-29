@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public extension BadgeIcon {
+public extension BadgeIcon where Icon == Image {
     
     static var accessibility = circular(
         icon: .symbol("accessibility"),
@@ -19,16 +19,12 @@ public extension BadgeIcon {
     
     static var airplaneMode = Self(
         icon: .symbol("airplane"),
-        style: .init(
-            badgeColor: .orange
-        )
+        style: .init(badgeColor: .orange)
     )
     
     static var alert = Self(
         icon: .symbol("exclamationmark.triangle"),
-        style: .init(
-            iconColor: .orange
-        )
+        style: .init(iconColor: .orange)
     )
     
     static var appStore = Self(
@@ -41,23 +37,17 @@ public extension BadgeIcon {
     
     static var battery = Self(
         icon: Image(systemName: "battery.100percent"),
-        style: .init(
-            badgeColor: .green
-        )
+        style: .init(badgeColor: .green)
     )
     
     static var bug = Self(
         icon: .symbol("ladybug"),
-        style: .init(
-            iconRenderingMode: .multicolor
-        )
+        style: .init(iconRenderingMode: .multicolor)
     )
     
     static var calendar = Self(
         icon: .symbol("calendar"),
-        style: .init(
-            iconColor: .red
-        )
+        style: .init(iconColor: .red)
     )
     
     static var checkmark = circular(
@@ -93,9 +83,7 @@ public extension BadgeIcon {
     
     static var error = Self(
         icon: .symbol("exclamationmark.triangle"),
-        style: .init(
-            iconColor: .red
-        )
+        style: .init(iconColor: .red)
     )
     
     static var export = Self(
@@ -109,30 +97,22 @@ public extension BadgeIcon {
     
     static var faceId = Self(
         icon: .symbol("faceid"),
-        style: .init(
-            badgeColor: .green
-        )
+        style: .init(badgeColor: .green)
     )
     
     static var featureRequest = Self(
         icon: .symbol("gift"),
-        style: .init(
-            iconColor: .pink
-        )
+        style: .init(iconColor: .pink)
     )
     
     static var heart = Self(
         icon: .symbol("heart"),
-        style: .init(
-            iconColor: .red
-        )
+        style: .init(iconColor: .red)
     )
     
     static var key = Self(
         icon: .symbol("key"),
-        style: .init(
-            badgeColor: .gray
-        )
+        style: .init(badgeColor: .gray)
     )
     
     static var languageSettings = circular(
@@ -151,23 +131,17 @@ public extension BadgeIcon {
     
     static var lock = Self(
         icon: .symbol("lock"),
-        style: .init(
-            badgeColor: .gray
-        )
+        style: .init(badgeColor: .gray)
     )
     
     static var message = Self(
         icon: .symbol("message"),
-        style: .init(
-            badgeColor: .green
-        )
+        style: .init(badgeColor: .green)
     )
     
     static var notifications = Self(
         icon: .symbol("bell.badge.fill"),
-        style: .init(
-            badgeColor: .red
-        )
+        style: .init(badgeColor: .red)
     )
     
     static var palette = Self(
@@ -184,47 +158,32 @@ public extension BadgeIcon {
     
     static var phone = Self(
         icon: .symbol("phone"),
-        style: .init(
-            badgeColor: .green
-        )
+        style: .init(badgeColor: .green)
     )
     
     static var premium = Self(
         icon: .symbol("crown"),
-        style: .init(
-            iconColor: .orange
-        )
+        style: .init(iconColor: .orange)
     )
     
     static var privacy = Self(
         icon: .symbol("hand.raised.fill"),
-        style: .init(
-            badgeColor: .blue
-        )
+        style: .init(badgeColor: .blue)
     )
     
     static var prominentAlert = Self(
         icon: .symbol("exclamationmark.triangle"),
-        style: .init(
-            iconColor: .white,
-            badgeColor: .orange
-        )
+        style: .init(badgeColor: .orange)
     )
     
     static var prominentCheckmark = Self(
         icon: .symbol("checkmark.circle"),
-        style: .init(
-            iconColor: .white,
-            badgeColor: .green
-        )
+        style: .init(badgeColor: .green)
     )
     
     static var prominentError = Self(
         icon: .symbol("exclamationmark.triangle"),
-        style: .init(
-            iconColor: .white,
-            badgeColor: .red
-        )
+        style: .init(badgeColor: .red)
     )
     
     static var safari = circular(
@@ -234,9 +193,7 @@ public extension BadgeIcon {
     
     static var settings = Self(
         icon: .symbol("gearshape"),
-        style: .init(
-            badgeColor: .gray
-        )
+        style: .init(badgeColor: .gray)
     )
     
     static var share = Self(
@@ -250,30 +207,22 @@ public extension BadgeIcon {
     
     static var shield = Self(
         icon: .symbol("checkmark.shield.fill"),
-        style: .init(
-            iconColor: .green
-        )
+        style: .init(iconColor: .green)
     )
     
     static var star = Self(
         icon: .symbol("star"),
-        style: .init(
-            iconColor: .yellow
-        )
+        style: .init(iconColor: .yellow)
     )
     
     static var touchId = Self(
         icon: .symbol("touchid"),
-        style: .init(
-            iconColor: .pink
-        )
+        style: .init(iconColor: .pink)
     )
     
     static var wifi = Self(
         icon: .symbol("wifi"),
-        style: .init(
-            badgeColor: .blue
-        )
+        style: .init(badgeColor: .blue)
     )
 }
 
@@ -333,7 +282,7 @@ private var previewItems: some View {
 }
 
 private func item(
-    _ view: BadgeIcon,
+    _ view: BadgeIcon<Image>,
     _ name: String
 ) -> some View {
     Label(

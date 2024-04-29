@@ -12,9 +12,9 @@ import SwiftUI
  This view mimics the color badge icons that can be found in
  System Settings on iOS and macOS.
  */
-public struct BadgeIcon: View {
+public struct BadgeIcon<Icon: View>: View {
     
-    /// Create a badge icon with an image icon.
+    /// Create a badge icon with an image as main icon.
     ///
     /// - Parameters:
     ///   - icon: The image to use as icon.
@@ -22,12 +22,25 @@ public struct BadgeIcon: View {
     public init(
         icon: Image,
         style: BadgeIconStyle = .standard
+    ) where Icon == Image {
+        self.icon = icon.resizable()
+        self.style = style
+    }
+    
+    /// Create a badge icon with a custom view as main icon.
+    ///
+    /// - Parameters:
+    ///   - iconView: The view to use as icon.
+    ///   - style: The style to apply, by default ``BadgeIcon/standard``.
+    public init(
+        iconView: Icon,
+        style: BadgeIconStyle = .standard
     ) {
-        self.icon = icon
+        self.icon = iconView
         self.style = style
     }
 
-    public var icon: Image
+    public var icon: Icon
     public var style: BadgeIconStyle
     
     @Environment(\.colorScheme)
@@ -44,8 +57,7 @@ public struct BadgeIcon: View {
                     )
                     .aspectRatio(1, contentMode: .fit)
                     .overlay(
-                        icon.resizable()
-                            .environment(\.colorScheme, style.iconColorScheme ?? colorScheme)
+                        icon.environment(\.colorScheme, style.iconColorScheme ?? colorScheme)
                             .aspectRatio(contentMode: .fit)
                             .symbolRenderingMode(style.iconRenderingMode)
                             .symbolVariant(style.iconFill ? .fill : .none)
@@ -126,6 +138,26 @@ private extension View {
     }
 }
 
+private extension BadgeIconStyle {
+    
+    static var purplePreview: Self {
+        .init(
+            iconColor: .yellow,
+            iconColorScheme: nil,
+            iconFill: true,
+            iconGradient: false,
+            iconOffset: .init(x: -0.4, y: -0.4),
+            iconPadding: 0.2,
+            iconRenderingMode: .monochrome,
+            badgeColor: .indigo,
+            badgeCornerRadius: 0.4,
+            badgeGradient: true,
+            badgeStrokeColor: .teal,
+            badgeStrokeWidth: 0.05
+        )
+    }
+}
+
 #Preview {
     VStack(spacing: 50) {
         BadgeIcon(icon: Image.symbol("checkmark"))
@@ -137,20 +169,12 @@ private extension View {
         
         BadgeIcon(
             icon: .symbol("face.smiling"),
-            style: .init(
-                iconColor: .yellow,
-                iconColorScheme: nil,
-                iconFill: true,
-                iconGradient: false,
-                iconOffset: .init(x: -0.4, y: -0.4),
-                iconPadding: 0.2,
-                iconRenderingMode: .monochrome,
-                badgeColor: .indigo,
-                badgeCornerRadius: 0.4,
-                badgeGradient: true,
-                badgeStrokeColor: .teal,
-                badgeStrokeWidth: 0.05
-            )
+            style: .purplePreview
+        )
+        
+        BadgeIcon(
+            iconView: Circle(),
+            style: .purplePreview
         )
         
         BadgeIcon(
