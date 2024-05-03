@@ -19,7 +19,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "BadgeIcon"
+            name: "BadgeIcon",
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]
         ),
         .testTarget(
             name: "BadgeIconTests",
