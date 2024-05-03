@@ -6,6 +6,22 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 0.6
+
+This version enabled strict concurrency, and adjusts a few things to conform to this new requirement.
+
+### 💡 Adjustments
+
+* `BadgeIconStyle` is no longer mutable.
+* `BadgeIcon+Predefined` now uses calulated instead of stored properties.
+
+### 🗑️ Deprecations
+
+* All previously deprecated code has been removed.
+
+
+
+
 ## 0.5
 
 ### ✨ New Features

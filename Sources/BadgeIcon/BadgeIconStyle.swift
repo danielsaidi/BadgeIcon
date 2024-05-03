@@ -104,7 +104,5 @@ public struct BadgeIconStyle {
 public extension BadgeIconStyle {
     
     /// The standard badge icon style.
-    ///
-    /// You can set this style to change the global default.
-    static var standard = Self()
+    static var standard: Self { .init() }
 }
