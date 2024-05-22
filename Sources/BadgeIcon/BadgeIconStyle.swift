@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// This style can be used to style a ``BadgeIcon``.
 public struct BadgeIconStyle {
     
     /// Create a badge icon style.

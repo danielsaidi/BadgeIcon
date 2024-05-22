@@ -8,10 +8,8 @@
 
 import SwiftUI
 
-/**
- This view mimics the color badge icons that can be found in
- System Settings on iOS and macOS.
- */
+/// This view mimics the color badge icons that can be found
+/// in e.g. System Settings on iOS and macOS.
 public struct BadgeIcon<Icon: View>: View {
     
     /// Create a badge icon with an image as main icon.
