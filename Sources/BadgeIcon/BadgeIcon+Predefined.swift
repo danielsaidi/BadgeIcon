@@ -10,48 +10,48 @@ import SwiftUI
 
 public extension BadgeIcon where Icon == Image {
     
-    static var accessibility: Self { prominent("accessibility", .blue, fill: false) }
-    static var airplaneMode: Self { prominent("airplane", .orange) }
-    static var alert: Self { icon("exclamationmark.triangle", .orange) }
-    static var appStore: Self { icon("apple.logo", .white.opacity(0.6), .black) }
-    static var battery: Self { prominent("battery.100percent", .green) }
-    static var bug: Self { multicolorIcon("ladybug") }
-    static var calendar: Self { icon("calendar", .red) }
-    static var checkmark: Self { icon("checkmark.circle", .green) }
-    static var displayAndBrightness: Self { prominent("sun.max", .blue) }
-    static var email: Self { prominent("envelope", .blue) }
-    static var error: Self { icon("exclamationmark.triangle", .red) }
-    static var export: Self { shareIcon("square.and.arrow.up.on.square") }
-    static var faceId: Self { prominent("faceid", .green) }
-    static var featureRequest: Self { icon("gift", .pink) }
-    static var focus: Self { prominent("moon", .indigo) }
-    static var headphones: Self { prominent("beats.headphones", .gray) }
-    static var heart: Self { icon("heart", .red) }
-    static var passwords: Self { prominent("key", .gray) }
-    static var languageSettings: Self { icon("globe", .cyan) }
-    static var lightbulb: Self { multicolorIcon("lightbulb", .yellow) }
-    static var lock: Self { prominent("lock", .gray) }
-    static var message: Self { prominent("message", .green) }
-    static var mobileService: Self { prominent("antenna.radiowaves.left.and.right", .green) }
-    static var notifications: Self { prominent("bell.badge.fill", .red) }
-    static var palette: Self { multicolorIcon("paintpalette") }
-    static var person: Self { Self(icon: .symbol("person")) }
-    static var personalHotspot: Self { prominent("personalhotspot", .green) }
-    static var phone: Self { prominent("phone", .green) }
-    static var premium: Self { icon("crown", .orange) }
-    static var privacy: Self { prominent("hand.raised.fill", .blue) }
-    static var prominentAlert: Self { prominent("exclamationmark.triangle", .orange) }
-    static var prominentCheckmark: Self { prominent("checkmark.circle", .green) }
-    static var prominentError: Self { prominent("exclamationmark.triangle", .red) }
-    static var safari: Self { icon("safari", .blue) }
-    static var screenTime: Self { prominent("hourglass", .indigo) }
-    static var settings: Self { prominent("gearshape", .gray) }
-    static var share: Self { shareIcon("square.and.arrow.up") }
-    static var shield: Self { icon("checkmark.shield.fill", .green) }
-    static var star: Self { icon("star", .yellow) }
-    static var soundAndHaptics: Self { prominent("speaker.wave.3", .pink) }
-    static var touchId: Self { icon("touchid", .pink) }
-    static var wifi: Self { prominent("wifi", .blue) }
+    static let accessibility = prominent("accessibility", .blue, fill: false)
+    static let airplaneMode = prominent("airplane", .orange)
+    static let alert = icon("exclamationmark.triangle", .orange)
+    static let appStore = icon("apple.logo", .white.opacity(0.6), .black)
+    static let battery = prominent("battery.100percent", .green)
+    static let bug = multicolorIcon("ladybug")
+    static let calendar = icon("calendar", .red)
+    static let checkmark = icon("checkmark.circle", .green)
+    static let displayAndBrightness = prominent("sun.max", .blue)
+    static let email = prominent("envelope", .blue)
+    static let error = icon("exclamationmark.triangle", .red)
+    static let export = shareIcon("square.and.arrow.up.on.square")
+    static let faceId = prominent("faceid", .green)
+    static let featureRequest = icon("gift", .pink)
+    static let focus = prominent("moon", .indigo)
+    static let headphones = prominent("beats.headphones", .gray)
+    static let heart = icon("heart", .red)
+    static let passwords = prominent("key", .gray)
+    static let languageSettings = icon("globe", .cyan)
+    static let lightbulb = multicolorIcon("lightbulb", .yellow)
+    static let lock = prominent("lock", .gray)
+    static let message = prominent("message", .green)
+    static let mobileService = prominent("antenna.radiowaves.left.and.right", .green)
+    static let notifications = prominent("bell.badge.fill", .red)
+    static let palette = multicolorIcon("paintpalette")
+    static let person = Self(icon: .symbol("person"))
+    static let personalHotspot = prominent("personalhotspot", .green)
+    static let phone = prominent("phone", .green)
+    static let premium = icon("crown", .orange)
+    static let privacy = prominent("hand.raised.fill", .blue)
+    static let prominentAlert = prominent("exclamationmark.triangle", .orange)
+    static let prominentCheckmark = prominent("checkmark.circle", .green)
+    static let prominentError = prominent("exclamationmark.triangle", .red)
+    static let safari = icon("safari", .blue)
+    static let screenTime = prominent("hourglass", .indigo)
+    static let settings = prominent("gearshape", .gray)
+    static let share = shareIcon("square.and.arrow.up")
+    static let shield = icon("checkmark.shield.fill", .green)
+    static let star = icon("star", .yellow)
+    static let soundAndHaptics = prominent("speaker.wave.3", .pink)
+    static let touchId = icon("touchid", .pink)
+    static let wifi = prominent("wifi", .blue)
 }
 
 private extension BadgeIcon where Icon == Image {
@@ -116,6 +116,7 @@ private extension BadgeIcon where Icon == Image {
     }
 }
 
+@MainActor
 @ViewBuilder
 private var previewItems: some View {
     item(.accessibility, "accessibility")

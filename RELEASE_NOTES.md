@@ -6,6 +6,12 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 0.7
+
+This version makes the SDK use Swift 6.
+
+
+
 ## 0.6
 
 This version enabled strict concurrency, and adjusts a few things to conform to this new requirement.

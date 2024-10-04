@@ -1,10 +1,10 @@
 <p align="center">
-    <img src ="Resources/Logo_GitHub.png" alt="BadgeIcon Logo" title="BadgeIcon" />
+    <img src ="Resources/Logo_Rounded.png" alt="BadgeIcon Logo" title="BadgeIcon" />
 </p>
 
 <p align="center">
     <img src="https://img.shields.io/github/v/release/danielsaidi/BadgeIcon?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" alt="Swift 5.9" />
+    <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0" />
     <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
     <img src="https://img.shields.io/github/license/danielsaidi/BadgeIcon" alt="MIT License" />
     <a href="https://twitter.com/danielsaidi"><img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" /></a>
@@ -14,7 +14,7 @@
 
 ## About BadgeIcon
 
-BadgeIcon is a Swift SDK that helps you mimic native System Settings icons in SwiftUI.
+BadgeIcon is a SwiftUI SDK that helps you mimic native System Settings icons.
 
 BadgeIcon comes with a bunch of predefined icons:
 
@@ -72,7 +72,7 @@ You can use both `Image` values or custom views as the icon.
 
 ## Documentation
 
-The [online documentation][Documentation] has more information, articles, code examples, etc.
+The online [documentation][Documentation] has more information, articles, code examples, etc.
 
 
 
@@ -109,6 +109,6 @@ BadgeIcon is available under the MIT license. See the [LICENSE][License] file fo
 [Sponsors]: https://github.com/sponsors/danielsaidi
 [OpenSource]: https://www.danielsaidi.com/opensource
 
-[Documentation]: https://danielsaidi.github.io/BadgeIcon/documentation/badgeicon/
+[Documentation]: https://danielsaidi.github.io/BadgeIcon/
 [Getting-Started]: https://danielsaidi.github.io/BadgeIcon/documentation/badgeicon/getting-started
 [License]: https://github.com/danielsaidi/BadgeIcon/blob/master/LICENSE
