@@ -6,20 +6,14 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
-## 0.7
-
-This version makes the SDK use Swift 6.
-
-
-
 ## 0.6
 
-This version enabled strict concurrency, and adjusts a few things to conform to this new requirement.
+This version makes the SDK use Swift 6, enables strict concurrency, and adjusts a few things to conform to this new requirement.
 
 ### 💡 Adjustments
 
 * `BadgeIconStyle` is no longer mutable.
-* `BadgeIcon+Predefined` now uses calulated instead of stored properties.
+* `BadgeIcon+Predefined` now uses static let instead of static var.
 
 ### 🗑️ Deprecations
 
