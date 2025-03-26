@@ -10,13 +10,18 @@ import SwiftUI
 
 /// This view mimics the color badge icons that can be found
 /// in e.g. System Settings on iOS and macOS.
+///
+/// Note that a custom ``BadgeIconStyle`` can be provided in
+/// the initializer and not as an environment value. This is
+/// because each icon is unique, which makes the environment
+/// a bad tool for applying such styles in this case.
 public struct BadgeIcon<Icon: View>: View {
     
     /// Create a badge icon with an image as main icon.
     ///
     /// - Parameters:
     ///   - icon: The image to use as icon.
-    ///   - style: The style to apply, by default ``BadgeIcon/standard``.
+    ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
     public init(
         icon: Image,
         style: BadgeIconStyle = .standard
@@ -29,7 +34,7 @@ public struct BadgeIcon<Icon: View>: View {
     ///
     /// - Parameters:
     ///   - iconView: The view to use as icon.
-    ///   - style: The style to apply, by default ``BadgeIcon/standard``.
+    ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
     public init(
         iconView: Icon,
         style: BadgeIconStyle = .standard
