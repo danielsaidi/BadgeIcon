@@ -6,6 +6,12 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 1.0
+
+This version adds more icons to the library, bringing the number of predefined icons up to 49.
+
+
+
 ## 0.6
 
 This version makes the SDK use Swift 6, enables strict concurrency, and adjusts a few things to conform to this new requirement.
