@@ -6,23 +6,20 @@
     <img src="https://img.shields.io/github/v/release/danielsaidi/BadgeIcon?color=%2300550&sort=semver" alt="Version" />
     <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0" />
     <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
+        <a href="https://danielsaidi.github.io/BadgeIcon"><img src="https://img.shields.io/badge/documentation-web-blue.svg" alt="Documentation" /></a>
     <img src="https://img.shields.io/github/license/danielsaidi/BadgeIcon" alt="MIT License" />
-    <a href="https://twitter.com/danielsaidi"><img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" /></a>
-    <a href="https://mastodon.social/@danielsaidi"><img src="https://img.shields.io/mastodon/follow/000253346?label=mastodon&style=social" alt="Mastodon: @danielsaidi@mastodon.social" title="Mastodon: @danielsaidi@mastodon.social" /></a>
 </p>
 
 
-## About BadgeIcon
+# BadgeIcon
 
-BadgeIcon is a SwiftUI SDK that helps you mimic native System Settings icons.
-
-BadgeIcon comes with a bunch of predefined icons:
+BadgeIcon is a SwiftUI library that helps you create beautiful, scalable icons, using SF Symbols or custom assets:
 
 <p align="center">
     <img src ="Resources/Preview_Grid.png" alt="BadgeIcon Preview" title="BadgeIcon Preview" />
 </p>
 
-You can also create your own icons, with rich customization options. 
+BadgeIcon comes with 30+ predefined icons, and lets you create custom icons with rich customization options. 
 
 
 
@@ -39,20 +36,19 @@ https://github.com/danielsaidi/BadgeIcon.git
 
 ## Getting started
 
-BadgeIcon has 30+ predefined icon types, for instance `.alert`, `.bug`, `.heart`, etc.
-
-You can use these badges as regular images, which will scale to fill the available space:
+BadgeIcon has 30+ predefined icons, like `.alert`, `.bug`, and `.heart`, which will scale to fill the available space:
 
 ```swift
 struct ContentView: View {
 
     var body: some View {
         BadgeIcon.calendar
+        BadgeIcon.heart.frame(width: 150)
     }
 }
 ```
 
-You can also create your own badge icons, with custom icon and badge styling:
+You can also create your own badge icons, with a rich set of icon and badge style options:
 
 ```swift
 extension BadgeIcon {
@@ -66,7 +62,7 @@ extension BadgeIcon {
 }
 ```
 
-You can use both `Image` values or custom views as the icon.
+You can use both `Image` values or custom views as the icon that is shown inside the badge.
 
 
 
@@ -86,12 +82,12 @@ Your support makes it possible for me to put more work into these projects and m
 
 ## Contact
 
-Feel free to reach out if you have questions or if you want to contribute in any way:
+Feel free to reach out if you have questions or want to contribute in any way:
 
 * Website: [danielsaidi.com][Website]
-* Mastodon: [@danielsaidi@mastodon.social][Mastodon]
-* Twitter: [@danielsaidi][Twitter]
 * E-mail: [daniel.saidi@gmail.com][Email]
+* Bluesky: [@danielsaidi@bsky.social][Bluesky]
+* Mastodon: [@danielsaidi@mastodon.social][Mastodon]
 
 
 
@@ -104,6 +100,7 @@ BadgeIcon is available under the MIT license. See the [LICENSE][License] file fo
 [Email]: mailto:daniel.saidi@gmail.com
 [Website]: https://www.danielsaidi.com
 [GitHub]: https://www.github.com/danielsaidi
+[Bluesky]: https://bsky.app/profile/danielsaidi.bsky.social
 [Twitter]: https://www.twitter.com/danielsaidi
 [Mastodon]: https://mastodon.social/@danielsaidi
 [Sponsors]: https://github.com/sponsors/danielsaidi

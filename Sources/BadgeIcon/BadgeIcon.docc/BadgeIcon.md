@@ -1,17 +1,17 @@
 # ``BadgeIcon``
 
-BadgeIcon is a Swift SDK that helps you mimic native System Settings icons in SwiftUI.
+BadgeIcon is a SwiftUI library that helps you create beautiful, scalable icons.
 
 
 ## Overview
 
 ![Library logotype](Logo.png)
 
-BadgeIcon is a Swift SDK that helps you mimic native System Settings icons in SwiftUI.
-
-BadgeIcon comes with a bunch of predefined icons, that you can use right away in your settings screens, main menus, etc. You can also create your own icons and styles, with rich customization options.
+BadgeIcon is a SwiftUI library that helps you create beautiful, scalable icons, using SF Symbols or custom assets.
 
 ![BadgeIcon preview](Preview.png)
+
+BadgeIcon comes with 30+ predefined icons, and lets you create custom icons with rich customization options.
 
 
 
@@ -27,20 +27,19 @@ https://github.com/danielsaidi/BadgeIcon.git
 
 ## Getting started
 
-BadgeIcon has 30+ predefined icon types that you can use right away, for instance ``BadgeIcon/alert``, ``BadgeIcon/bug``, and ``BadgeIcon/email``.
-
-You can use these badges as regular SwiftUI views, which will scale to fill the available space:
+BadgeIcon has 30+ predefined icons, like ``BadgeIcon/alert``, ``BadgeIcon/bug``, and ``BadgeIcon/heart``, which will scale to fill the available space:
 
 ```swift
 struct ContentView: View {
 
     var body: some View {
         BadgeIcon.calendar
+        BadgeIcon.heart.frame(width: 150)
     }
 }
 ```
 
-You can also create your own badge icons, with custom icon and badge styling:
+You can also create your own badge icons, with a rich set of icon and badge style options:
 
 ```swift
 extension BadgeIcon {
@@ -54,7 +53,7 @@ extension BadgeIcon {
 }
 ```
 
-You can use both `Image` values or custom views as the icon.
+You can use both `Image` values or custom views as the icon that is shown inside the badge.
 
 
 
