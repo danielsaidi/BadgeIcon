@@ -7,13 +7,14 @@
     <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0" />
     <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
     <a href="https://danielsaidi.github.io/BadgeIcon"><img src="https://img.shields.io/badge/documentation-web-blue.svg" alt="Documentation" /></a>
-    <img src="https://img.shields.io/github/license/danielsaidi/BadgeIcon" alt="MIT License" />
+    <a href="https://github.com/danielsaidi/BadgeIcon/blob/master/LICENSE"><img src="https://img.shields.io/github/license/danielsaidi/BadgeIcon" alt="MIT License" /></a>
+    <a href="https://github.com/sponsors/danielsaidi"><img src="https://img.shields.io/badge/sponsor-GitHub-red.svg" alt="Sponsor my work" /></a>
 </p>
 
 
 # BadgeIcon
 
-BadgeIcon is a SwiftUI library that helps you create beautiful, scalable icons, using SF Symbols or custom assets:
+BadgeIcon is a SwiftUI library that lets you create beautiful, scalable icons, using SF Symbols or custom assets:
 
 <p align="center">
     <img src ="Resources/Preview_Grid.png" alt="BadgeIcon Preview" title="BadgeIcon Preview" />
@@ -31,6 +32,11 @@ BadgeIcon can be installed with the Swift Package Manager:
 ```
 https://github.com/danielsaidi/BadgeIcon.git
 ```
+
+
+## Support My Work
+
+You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
 
 
 
@@ -72,14 +78,6 @@ The online [documentation][Documentation] has more information, articles, code e
 
 
 
-## Support my work 
-
-You can [sponsor me][Sponsors] on GitHub Sponsors or [reach out][Email] for paid support, to help support my [open-source projects][OpenSource].
-
-Your support makes it possible for me to put more work into these projects and make them the best they can be.
-
-
-
 ## Contact
 
 Feel free to reach out if you have questions or want to contribute in any way:
@@ -98,13 +96,14 @@ BadgeIcon is available under the MIT license. See the [LICENSE][License] file fo
 
 
 [Email]: mailto:daniel.saidi@gmail.com
-[Website]: https://www.danielsaidi.com
-[GitHub]: https://www.github.com/danielsaidi
-[Bluesky]: https://bsky.app/profile/danielsaidi.bsky.social
-[Twitter]: https://www.twitter.com/danielsaidi
-[Mastodon]: https://mastodon.social/@danielsaidi
+[Website]: https://danielsaidi.com
+[GitHub]: https://github.com/danielsaidi
+[OpenSource]: https://danielsaidi.com/opensource
 [Sponsors]: https://github.com/sponsors/danielsaidi
-[OpenSource]: https://www.danielsaidi.com/opensource
+
+[Bluesky]: https://bsky.app/profile/danielsaidi.bsky.social
+[Mastodon]: https://mastodon.social/@danielsaidi
+[Twitter]: https://twitter.com/danielsaidi
 
 [Documentation]: https://danielsaidi.github.io/BadgeIcon/
 [Getting-Started]: https://danielsaidi.github.io/BadgeIcon/documentation/badgeicon/getting-started
