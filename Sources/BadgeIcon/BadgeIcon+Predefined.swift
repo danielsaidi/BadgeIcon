@@ -23,6 +23,7 @@ public extension BadgeIcon where Icon == Image {
     static let developer = prominent("hammer", .gray)
     static let displayAndBrightness = prominent("sun.max", .blue)
     static let email = prominent("envelope", .blue)
+    static let emoji = paletteIcon("face.smiling.inverse", [.black, .yellow])
     static let error = icon("exclamationmark.triangle", .red)
     static let export = shareIcon("square.and.arrow.up.on.square")
     static let faceId = prominent("faceid", .green)
@@ -78,7 +79,7 @@ private extension BadgeIcon where Icon == Image {
         )
     }
     
-    /// A multicolor icon has an image icon on a white badge.
+    /// A multicolor icon has an icon on a white badge.
     static func multicolorIcon(
         _ iconName: String,
         _ color: Color = .black
@@ -92,7 +93,21 @@ private extension BadgeIcon where Icon == Image {
             )
         )
     }
-    
+
+    /// A palette icon has an icon on a white badge.
+    static func paletteIcon(
+        _ iconName: String,
+        _ colors: [Color]
+    ) -> Self {
+        .init(
+            icon: .symbol(iconName),
+            style: .init(
+                iconColors: colors,
+                iconRenderingMode: .palette
+            )
+        )
+    }
+
     /// A prominent icon has a white icon on a colored badge.
     static func prominent(
         _ iconName: String,
@@ -139,6 +154,7 @@ private var previewItems: some View {
     item(.displayAndBrightness, "displayAndBrightness")
     item(.developer, "developer")
     item(.email, "email")
+    item(.emoji, "emoji")
     item(.error, "error")
     item(.export, "export")
     item(.faceId, "faceId")

@@ -66,7 +66,7 @@ public struct BadgeIcon<Icon: View>: View {
                             .symbolVariant(style.iconFill ? .fill : .none)
                             .padding(iconPadding(for: geo))
                             .offset(iconOffset(for: geo))
-                            .foreground(style.iconColor, gradient: style.iconGradient)
+                            .foreground(style.iconColors, gradient: style.iconGradient)
                     )
             }
         }
@@ -128,13 +128,24 @@ private extension View {
     
     @ViewBuilder
     func foreground(
-        _ color: Color?,
+        _ colors: [Color],
         gradient: Bool
     ) -> some View {
-        if let color, gradient {
-            self.foregroundStyle(color.gradient)
-        } else if let color {
-            self.foregroundStyle(color)
+        if colors.count == 2 {
+            if gradient {
+                self.foregroundStyle(
+                    colors[0].gradient,
+                    colors[1].gradient
+                )
+            } else {
+                self.foregroundStyle(colors[0], colors[1])
+            }
+        } else if colors.count == 1 {
+            if gradient {
+                self.foregroundStyle(colors[0].gradient)
+            } else {
+                self.foregroundStyle(colors[0])
+            }
         } else {
             self
         }
@@ -171,8 +182,12 @@ private extension BadgeIconStyle {
         
         
         BadgeIcon(
-            icon: .symbol("face.smiling"),
-            style: .purplePreview
+            icon: .symbol("face.smiling.inverse"),
+            style: .init(
+                iconColors: [.yellow, .black],
+                iconColorScheme: .light,
+                iconRenderingMode: .palette
+            )
         )
         
         BadgeIcon(

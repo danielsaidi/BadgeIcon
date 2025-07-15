@@ -6,6 +6,17 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 1.1
+
+This version adds more icons to the library, bringing the number of predefined icons up to 50.
+
+### ✨ New Features
+
+* `BadgeIcon` has a new `.emoji` icon.
+* `BadgeIcon` has new support for defining palette icons.
+
+
+
 ## 1.0
 
 This version adds more icons to the library, bringing the number of predefined icons up to 49.

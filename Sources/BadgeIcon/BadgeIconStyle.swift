@@ -20,6 +20,7 @@ public struct BadgeIconStyle {
     ///
     /// - Parameters:
     ///   - iconColor: The icon color, by default `semi-black` or `white`.
+    ///   - iconColors: The icon colors, when using a palette rendering mode.
     ///   - iconColorScheme: The icon color scheme, by default `nil`.
     ///   - iconFill: The icon fill mode, by default `true`.
     ///   - iconGradient: Whether or not to add a gradient to the icon color, by default `true`.
@@ -33,6 +34,7 @@ public struct BadgeIconStyle {
     ///   - badgeStrokeWidth: The badge stroke width, by default `0.3` of the icon size.
     public init(
         iconColor: Color? = nil,
+        iconColors: [Color] = [],
         iconColorScheme: ColorScheme? = nil,
         iconFill: Bool = true,
         iconGradient: Bool = true,
@@ -50,8 +52,11 @@ public struct BadgeIconStyle {
         let whiteBadgeIconColor = Color.black.opacity(0.8)
         let fallbackIconColor = whiteBadge ? whiteBadgeIconColor : .white
         let fallbackStroke = whiteBadge ? whiteBadgeStroke : .clear
-        
-        self.iconColor = iconColor ?? fallbackIconColor
+
+        let iconColor = iconColor ?? fallbackIconColor
+        let colors = iconColors.isEmpty ? [iconColor] : iconColors
+
+        self.iconColors = colors
         self.iconColorScheme = iconColorScheme
         self.iconFill = iconFill
         self.iconGradient = iconGradient
@@ -66,8 +71,8 @@ public struct BadgeIconStyle {
     }
     
     /// The icon color.
-    public var iconColor: Color?
-    
+    public var iconColors: [Color]
+
     /// The icon color scheme, if any.
     public var iconColorScheme: ColorScheme?
     
