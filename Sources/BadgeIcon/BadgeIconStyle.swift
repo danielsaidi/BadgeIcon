@@ -21,8 +21,8 @@ public struct BadgeIconStyle {
     /// - Parameters:
     ///   - iconColor: The icon color, by default `semi-black` or `white`.
     ///   - iconColors: The icon colors, when using a palette rendering mode.
-    ///   - iconColorScheme: The icon color scheme, by default `nil`.
-    ///   - iconFill: The icon fill mode, by default `true`.
+    ///   - iconColorScheme: The icon color scheme, by default `nil`.
+    ///   - iconFill: Whether or not to use the filled icon variant, by default `true`.
     ///   - iconGradient: Whether or not to add a gradient to the icon color, by default `true`.
     ///   - iconOffset: The icon offset, by default `0` of the icon size.
     ///   - iconPadding: The icon padding, by default `0.15` of the icon size.
@@ -76,10 +76,10 @@ public struct BadgeIconStyle {
     /// The icon color scheme, if any.
     public var iconColorScheme: ColorScheme?
     
-    /// The icon fill mode.
+    /// Whether to add a gradient to the icon color.
     public var iconGradient: Bool
     
-    /// Whether to add a gradient to the icon color.
+    /// Whether to use the filled icon variant.
     public var iconFill: Bool
     
     /// The icon offset.
