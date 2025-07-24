@@ -1,6 +1,6 @@
 # Release Notes
 
-BadgeIcon will use semver after 1.0. 
+[BadgeIcon](https://github.com/danielsaidi/BadgeIcon) will use semver after 1.0. 
 
 Until then, breaking changes can happen in any version, and deprecated features may be removed in any minor version bump.
 
