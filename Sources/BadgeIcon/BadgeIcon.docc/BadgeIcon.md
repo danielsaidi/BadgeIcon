@@ -11,7 +11,7 @@ BadgeIcon is a SwiftUI library that lets you create beautiful, scalable icons, u
 
 ![BadgeIcon preview](Preview.png)
 
-BadgeIcon comes with **50** predefined icons, and lets you create custom icons with rich customization options.
+BadgeIcon comes with **118** predefined icons, and lets you create custom icons with rich customization options.
 
 
 
@@ -32,7 +32,7 @@ You can [become a sponsor][Sponsors] to help me dedicate more time on my various
 
 ## Getting started
 
-BadgeIcon has **50** predefined icons, like ``BadgeIcon/alert``, ``BadgeIcon/bug``, and ``BadgeIcon/heart``, which will scale to fill the available space:
+BadgeIcon has **118** predefined icons, like ``BadgeIcon/alert``, ``BadgeIcon/bug``, and ``BadgeIcon/heart``, which will scale to fill the available space:
 
 ```swift
 struct ContentView: View {

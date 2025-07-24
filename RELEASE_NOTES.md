@@ -6,6 +6,17 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 1.2
+
+This version adds more icons to the library, bringing the number of predefined icons up to 118!
+
+### ✨ New Features
+
+* `BadgeIcon` has 68 new icons.
+* `BadgeIcon` has new public icon builders for standard styles.
+
+
+
 ## 1.1
 
 This version adds more icons to the library, bringing the number of predefined icons up to 50.
