@@ -6,6 +6,15 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 1.2.1
+
+### 🐛 Bug Fixes
+
+* `BadgeIcon.lightbulb` has been restored.
+
+
+
+
 ## 1.2
 
 This version adds more icons to the library, bringing the number of predefined icons up to 118!

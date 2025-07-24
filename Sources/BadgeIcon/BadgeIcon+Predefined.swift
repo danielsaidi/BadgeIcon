@@ -26,7 +26,7 @@ public extension BadgeIcon where Icon == Image {
     static let bookmark = prominent("bookmark", .orange)
     static let briefcase = prominent("briefcase", .brown)
     static let building = prominent("building.2", .gray)
-    static let bug = multicolor("ladybug")
+    static let bug = multicolor("ladybug", .red, .white)
     static let calculator = prominent("plus.forwardslash.minus", .orange)
     static let calendar = icon("calendar", .red)
     static let camera = prominent("camera", .gray)
@@ -82,7 +82,7 @@ public extension BadgeIcon where Icon == Image {
     static let network = prominent("network", .blue)
     static let notifications = prominent("bell.badge.fill", .red)
     static let pause = mediaControl("pause.fill", .orange)
-    static let palette = multicolor("paintpalette")
+    static let palette = multicolor("paintpalette", .yellow, .white)
     static let passwords = prominent("key", .gray)
     static let pencil = prominent("pencil", .orange)
     static let person = icon("person", .black.opacity(0.7))
@@ -175,11 +175,13 @@ public extension BadgeIcon where Icon == Image {
     /// A multicolor icon has an icon on a white badge.
     static func multicolor(
         _ iconName: String,
+        _ iconColor: Color,
         _ badgeColor: Color = .white
     ) -> Self {
         .init(
             icon: .symbol(iconName),
             style: .init(
+                iconColor: iconColor,
                 iconColorScheme: .light,
                 iconRenderingMode: .multicolor,
                 badgeColor: badgeColor
