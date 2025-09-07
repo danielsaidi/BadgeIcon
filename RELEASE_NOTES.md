@@ -6,7 +6,11 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
-## 1.2.2
+## 1.3
+
+### ✨ Features
+
+* `BadgeIcon` has a new `.font` icon.
 
 ### 💡 Adjustments
 

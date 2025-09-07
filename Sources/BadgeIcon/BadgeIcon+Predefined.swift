@@ -59,6 +59,7 @@ public extension BadgeIcon where Icon == Image {
     static let fitness = prominent("figure.run", .green)
     static let focus = prominent("moon", .indigo)
     static let folder = prominent("folder", .blue)
+    static let font = icon("bold", .teal, iconPadding: 0.2)
     static let games = prominent("gamecontroller", .orange)
     static let graduation = prominent("graduationcap", .blue)
     static let headphones = prominent("beats.headphones", .gray)
@@ -136,12 +137,14 @@ public extension BadgeIcon where Icon == Image {
     static func icon(
         _ iconName: String,
         _ iconColor: Color,
-        _ badgeIcon: Color = .white
+        _ badgeIcon: Color = .white,
+        iconPadding: Double? = nil
     ) -> Self {
         .init(
             icon: .symbol(iconName),
             style: .init(
                 iconColor: iconColor,
+                iconPadding: iconPadding,
                 badgeColor: badgeIcon
             )
         )
@@ -289,6 +292,7 @@ private var previewItems: some View {
     item(.fingerprint, "fingerprint")
     item(.focus, "focus")
     item(.folder, "folder")
+    item(.font, "font")
     item(.games, "games")
     item(.graduation, "graduation")
     item(.headphones, "headphones")

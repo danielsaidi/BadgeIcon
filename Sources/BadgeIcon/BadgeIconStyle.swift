@@ -39,7 +39,7 @@ public struct BadgeIconStyle {
         iconFill: Bool = true,
         iconGradient: Bool = true,
         iconOffset: CGPoint = .zero,
-        iconPadding: Double = 0.15,
+        iconPadding: Double? = nil,
         iconRenderingMode: SymbolRenderingMode = .monochrome,
         badgeColor: Color = .white,
         badgeCornerRadius: Double = 0.3,
@@ -61,7 +61,7 @@ public struct BadgeIconStyle {
         self.iconFill = iconFill
         self.iconGradient = iconGradient
         self.iconOffset = iconOffset
-        self.iconPadding = iconPadding
+        self.iconPadding = iconPadding ?? 0.15
         self.iconRenderingMode = iconRenderingMode
         self.badgeColor = badgeColor
         self.badgeCornerRadius = badgeCornerRadius
