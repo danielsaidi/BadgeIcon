@@ -26,7 +26,7 @@ public extension BadgeIcon where Icon == Image {
     static let bookmark = prominent("bookmark", .orange)
     static let briefcase = prominent("briefcase", .brown)
     static let building = prominent("building.2", .gray)
-    static let bug = multicolor("ladybug", .red, .white)
+    static let bug = multicolor("ladybug", [.red], .white)
     static let calculator = prominent("plus.forwardslash.minus", .orange)
     static let calendar = icon("calendar", .red)
     static let camera = prominent("camera", .gray)
@@ -35,7 +35,7 @@ public extension BadgeIcon where Icon == Image {
     static let chat = prominent("bubble.left.and.bubble.right", .blue)
     static let checkmark = icon("checkmark.circle", .green)
     static let cleaning = prominent("bubbles.and.sparkles", .blue)
-    static let clipboard = prominent("clipboard", .gray)
+    static let clipboard = palette("list.clipboard.fill", [.white, .brown], iconOffsetY: -0.05)
     static let clock = icon("clock", .white.opacity(0.9), .black)
     static let compass = prominent("safari.fill", .blue)
     static let controlCenter = prominent("switch.2", .gray)
@@ -69,7 +69,7 @@ public extension BadgeIcon where Icon == Image {
     static let iCloud = icon("icloud.fill", .cyan.opacity(0.8))
     static let languageSettings = icon("globe", .cyan)
     static let leaf = prominent("leaf", .green)
-    static let lightbulb = multicolor("lightbulb", .yellow)
+    static let lightbulb = multicolor("lightbulb", [.yellow])
     static let lineChart = prominent("chart.xyaxis.line", .blue)
     static let location = prominent("location", .blue)
     static let lock = prominent("lock", .gray)
@@ -82,7 +82,7 @@ public extension BadgeIcon where Icon == Image {
     static let network = prominent("network", .blue)
     static let notifications = prominent("bell.badge.fill", .red)
     static let pause = mediaControl("pause.fill", .orange)
-    static let palette = multicolor("paintpalette", .yellow, .white)
+    static let palette = multicolor("paintpalette", [.yellow], .white)
     static let passwords = prominent("key", .gray)
     static let pencil = prominent("pencil", .orange)
     static let person = icon("person", .black.opacity(0.7))
@@ -124,7 +124,7 @@ public extension BadgeIcon where Icon == Image {
     static let video = prominent("video", .green)
     static let walk = prominent("figure.walk", .green)
     static let wallet = prominent("wallet.pass", .black)
-    static let weather = multicolor("cloud.sun.fill", .cyan)
+    static let weather = multicolor("cloud.sunfill", [.cyan])
     static let wifi = prominent("wifi", .blue)
     static let wind = prominent("wind", .gray)
     static let wrench = prominent("wrench", .gray)
@@ -175,14 +175,16 @@ public extension BadgeIcon where Icon == Image {
     /// A multicolor icon has an icon on a white badge.
     static func multicolor(
         _ iconName: String,
-        _ iconColor: Color,
+        _ iconColors: [Color],
+        iconOffsetY: Double = 0,
         _ badgeColor: Color = .white
     ) -> Self {
         .init(
             icon: .symbol(iconName),
             style: .init(
-                iconColor: iconColor,
+                iconColors: iconColors,
                 iconColorScheme: .light,
+                iconOffset: .init(x: 0, y: iconOffsetY),
                 iconRenderingMode: .multicolor,
                 badgeColor: badgeColor
             )
@@ -192,12 +194,14 @@ public extension BadgeIcon where Icon == Image {
     /// A palette icon has an icon on a white badge.
     static func palette(
         _ iconName: String,
-        _ colors: [Color]
+        _ colors: [Color],
+        iconOffsetY: Double = 0
     ) -> Self {
         .init(
             icon: .symbol(iconName),
             style: .init(
                 iconColors: colors,
+                iconOffset: .init(x: 0, y: iconOffsetY),
                 iconRenderingMode: .palette
             )
         )

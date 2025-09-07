@@ -6,6 +6,14 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 1.2.2
+
+### 💡 Adjustments
+
+* `BadgeIcon.clipboard` has been redesigned.
+
+
+
 ## 1.2.1
 
 ### 🐛 Bug Fixes
@@ -14,12 +22,11 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
-
 ## 1.2
 
 This version adds more icons to the library, bringing the number of predefined icons up to 118!
 
-### ✨ New Features
+### ✨ Features
 
 * `BadgeIcon` has 68 new icons.
 * `BadgeIcon` has new public icon builders for standard styles.
@@ -30,7 +37,7 @@ This version adds more icons to the library, bringing the number of predefined i
 
 This version adds more icons to the library, bringing the number of predefined icons up to 50.
 
-### ✨ New Features
+### ✨ Features
 
 * `BadgeIcon` has a new `.emoji` icon.
 * `BadgeIcon` has new support for defining palette icons.
@@ -61,7 +68,7 @@ This version makes the SDK use Swift 6, enables strict concurrency, and adjusts 
 
 ## 0.5
 
-### ✨ New Features
+### ✨ Features
 
 * `BadgeIcon` has 7 new icons.
 * `BadgeIcon` has new icon templates, like `.icon`.
@@ -77,7 +84,7 @@ This version makes the SDK use Swift 6, enables strict concurrency, and adjusts 
 
 ## 0.4
 
-### ✨ New Features
+### ✨ Features
 
 * BadgeIcon now supports visionOS.
 

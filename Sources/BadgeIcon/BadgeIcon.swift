@@ -196,7 +196,7 @@ private extension BadgeIconStyle {
         )
         
         BadgeIcon(
-            icon: .symbol("checkmark"),
+            icon: .symbol("clipboard"),
             style: .init(
                 iconColor: .green,
                 iconColorScheme: nil,
