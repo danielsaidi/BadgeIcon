@@ -17,7 +17,7 @@
 BadgeIcon is a SwiftUI library that lets you create beautiful, scalable icons, using SF Symbols or custom assets:
 
 <p align="center">
-    <img src ="Resources/Preview_Grid.png" alt="BadgeIcon Preview" title="BadgeIcon Preview" />
+    <img src="https://github.com/danielsaidi/BadgeIcon/releases/download/2.0.0/Demo.gif" alt="Demo gif" />
 </p>
 
 BadgeIcon comes with **118** predefined icons, and lets you create custom icons with rich customization options. 
