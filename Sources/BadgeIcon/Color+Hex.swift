@@ -28,8 +28,7 @@ extension Color {
 
     /// Create a color with a string hex, e.g. `#abcdef`,
     ///
-    /// This supports multiple string formats, like `abcdef`,
-    /// `#abcdef`, `0xabcdef`, and `#abcdef`.
+    /// This supports multiple formats, like `abcdef`, `#abcdef` and `0xabcdef`.
     ///
     /// - Parameters:
     ///   - hex: The hex string to parse.

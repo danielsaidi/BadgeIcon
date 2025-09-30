@@ -11,12 +11,12 @@ import SwiftUI
 /// This style can be used to style a ``BadgeIcon``.
 public struct BadgeIconStyle {
     
-    /// Create a badge icon style.
+    /// Create a custom badge icon style.
     ///
-    /// The size-based parameters, like `iconOffset`, should
-    /// be expressed as a `0.0-1.0` ratio of the icon's size,
-    /// to let them scale with the icon. For instance, a 0.5
-    /// `badgeCornerRadius` will make the badge circular.
+    /// Size-based values like the icon offset and badge corner radius should be
+    /// expressed as a `0.0-1.0` icon size ratio, to let them scale with the icon.
+    ///
+    /// For instance, applying a 0.5 badge corner radius will make the icon round.
     ///
     /// - Parameters:
     ///   - iconColor: The icon color, by default `semi-black` or `white`.

@@ -6,6 +6,15 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 1.4
+
+### 💡 Adjustments
+
+* The package now uses Swift 6.1. 
+* There is a new demo app that targets iOS 26. 
+
+
+
 ## 1.3
 
 ### ✨ Features
