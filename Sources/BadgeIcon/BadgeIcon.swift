@@ -14,36 +14,46 @@ import SwiftUI
 /// and not as an environment value. This is because each icon is unique, which
 /// makes the environment value approach unsuitable for this kind of styling.
 public struct BadgeIcon<Icon: View>: View {
-    
+
     /// Create a badge icon with an image as main icon.
     ///
     /// - Parameters:
+    ///   - name: The icon name.
     ///   - icon: The image to use as icon.
     ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
     public init(
+        name: String,
         icon: Image,
         style: BadgeIconStyle = .standard
     ) where Icon == Image {
-        self.icon = icon.resizable()
-        self.style = style
+        self.init(
+            name: name,
+            iconView: icon.resizable(),
+            style: style
+        )
     }
     
     /// Create a badge icon with a custom view as main icon.
     ///
     /// - Parameters:
+    ///   - name: The icon name.
     ///   - iconView: The view to use as icon.
     ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
     public init(
+        name: String,
         iconView: Icon,
         style: BadgeIconStyle = .standard
     ) {
+        self.name = name
         self.icon = iconView
         self.style = style
     }
 
-    public var icon: Icon
-    public var style: BadgeIconStyle
-    
+    public var id: String { name }
+    public let name: String
+    public let icon: Icon
+    public let style: BadgeIconStyle
+
     @Environment(\.colorScheme)
     private var colorScheme
 
@@ -172,14 +182,18 @@ private extension BadgeIconStyle {
 
 #Preview {
     VStack(spacing: 50) {
-        BadgeIcon(icon: Image.symbol("checkmark"))
-            .bold()
+        BadgeIcon(
+            name: "test",
+            icon: Image.symbol("checkmark")
+        )
+        .bold()
         
 //        BadgeIcon(icon: Text("A"))
 //            .bold()
         
         
         BadgeIcon(
+            name: "smile",
             icon: .symbol("face.smiling.inverse"),
             style: .init(
                 iconColors: [.yellow, .black],
@@ -189,11 +203,13 @@ private extension BadgeIconStyle {
         )
         
         BadgeIcon(
+            name: "circle",
             iconView: Circle(),
             style: .purplePreview
         )
         
         BadgeIcon(
+            name: "clipboard",
             icon: .symbol("clipboard"),
             style: .init(
                 iconColor: .green,

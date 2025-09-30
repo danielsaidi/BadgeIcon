@@ -6,7 +6,12 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
-## 1.4
+## 2.0
+
+### ✨ Features
+
+* `BadgeIcon` has a new `name` and `label` property.
+* `BadgeIcon` has a new static `predefined` property.
 
 ### 💡 Adjustments
 
