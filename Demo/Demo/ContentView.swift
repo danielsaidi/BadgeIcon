@@ -17,12 +17,15 @@ struct ContentView: View {
         NavigationStack {
             ScrollView(.vertical) {
                 LazyVGrid(
-                    columns: [.init(.adaptive(minimum: size, maximum: size + 20), spacing: 10)],
+                    columns: [.init(
+                        .adaptive(minimum: size, maximum: size + 20),
+                        spacing: 10
+                    )],
                     spacing: 10
                 ) {
                     ForEach(BadgeIcon<Image>.predefined, id: \.id) { icon in
                         Button {
-                            print(icon.name ?? "-")
+                            print(icon.name)
                         } label: {
                             icon.label
                         }
@@ -35,7 +38,7 @@ struct ContentView: View {
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 0) {
                     Divider()
-                    Slider(value: $size, in: 25...150)
+                    Slider(value: $size, in: 50...150)
                         .padding()
                 }
                 .background(.thinMaterial)
