@@ -125,7 +125,7 @@ public extension BadgeIcon where Icon == Image {
     static let video = prominent("video", "video", .green)
     static let walk = prominent("walk", "figure.walk", .green)
     static let wallet = prominent("wallet", "wallet.pass", .black)
-    static let weather = multicolor("weather", "cloud.sunfill", [.cyan])
+    static let weather = multicolor("weather", "cloud.sun.fill", [], .blue)
     static let wifi = prominent("wifi", "wifi", .blue)
     static let wind = prominent("wind", "wind", .gray)
     static let wrench = prominent("wrench", "wrench", .gray)

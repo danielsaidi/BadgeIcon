@@ -39,6 +39,7 @@ struct ContentView: View {
                     }
                 }
                 .padding()
+                .padding(.bottom, 70)
             }
             .labelStyle(.iconOnly)
             .navigationTitle("BadgeIcon")
