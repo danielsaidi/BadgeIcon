@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State var size = 50.0
+
     @State var isSheetPresented = true {
         didSet {
             if !isSheetPresented {
@@ -49,7 +50,7 @@ struct ContentView: View {
                 .opacity(0.1)
                 .ignoresSafeArea()
                 .overlay(alignment: .center) {
-                    Slider(value: $size, in: 50...150)
+                    Slider(value: $size.animation(), in: 50...150)
                         .padding(.horizontal)
                 }
                 .interactiveDismissDisabled()
