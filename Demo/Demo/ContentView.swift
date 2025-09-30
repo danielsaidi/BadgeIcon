@@ -12,6 +12,13 @@ import SwiftUI
 struct ContentView: View {
 
     @State var size = 50.0
+    @State var isSheetPresented = true {
+        didSet {
+            if !isSheetPresented {
+                isSheetPresented = true
+            }
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -35,15 +42,20 @@ struct ContentView: View {
             }
             .labelStyle(.iconOnly)
             .navigationTitle("BadgeIcon")
-            .safeAreaInset(edge: .bottom) {
-                VStack(spacing: 0) {
-                    Divider()
-                    Slider(value: $size, in: 50...150)
-                        .padding()
-                }
-                .background(.thinMaterial)
-            }
         }
+        .sheet(isPresented: .constant(true)) {
+            Color.gray
+                .opacity(0.1)
+                .ignoresSafeArea()
+                .overlay(alignment: .center) {
+                    Slider(value: $size, in: 50...150)
+                        .padding(.horizontal)
+                }
+                .interactiveDismissDisabled()
+                .presentationDetents([.height(80)])
+                .presentationBackgroundInteraction(.enabled)
+        }
+
     }
 }
 
