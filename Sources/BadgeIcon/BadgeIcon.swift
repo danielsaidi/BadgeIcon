@@ -20,15 +20,18 @@ public struct BadgeIcon<Icon: View>: View {
     /// - Parameters:
     ///   - name: The icon name.
     ///   - icon: The image to use as icon.
+    ///   - darkModeIcon: The image to use as dark mode icon, if any.
     ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
     public init(
         name: String,
         icon: Image,
+        darkModeIcon: Image? = nil,
         style: BadgeIconStyle = .standard
     ) where Icon == Image {
         self.init(
             name: name,
             iconView: icon.resizable(),
+            darkModeIconView: darkModeIcon?.resizable(),
             style: style
         )
     }
@@ -37,22 +40,31 @@ public struct BadgeIcon<Icon: View>: View {
     ///
     /// - Parameters:
     ///   - name: The icon name.
-    ///   - iconView: The view to use as icon.
+    ///   - iconView: The view to use as icon, if any.
     ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
     public init(
         name: String,
         iconView: Icon,
+        darkModeIconView: Icon? = nil,
         style: BadgeIconStyle = .standard
     ) {
         self.name = name
-        self.icon = iconView
+        self.lightModeIcon = iconView
+        self.darkModeIcon = darkModeIconView
         self.style = style
     }
 
     public var id: String { name }
     public let name: String
-    public let icon: Icon
-    public let style: BadgeIconStyle
+
+    private let lightModeIcon: Icon
+    private let darkModeIcon: Icon?
+    private let style: BadgeIconStyle
+
+    private var icon: Icon {
+        guard colorScheme == .dark else { return lightModeIcon }
+        return darkModeIcon ?? lightModeIcon
+    }
 
     @Environment(\.colorScheme)
     private var colorScheme
@@ -68,13 +80,14 @@ public struct BadgeIcon<Icon: View>: View {
                     )
                     .aspectRatio(1, contentMode: .fit)
                     .overlay(
-                        icon.environment(\.colorScheme, style.iconColorScheme ?? colorScheme)
-                            .aspectRatio(contentMode: .fit)
-                            .symbolRenderingMode(style.iconRenderingMode)
-                            .symbolVariant(style.iconFill ? .fill : .none)
-                            .padding(iconPadding(for: geo))
-                            .offset(iconOffset(for: geo))
-                            .foreground(style.iconColors, gradient: style.iconGradient)
+                      icon
+                          .environment(\.colorScheme, style.iconColorScheme ?? colorScheme)
+                          .aspectRatio(contentMode: .fit)
+                          .symbolRenderingMode(style.iconRenderingMode)
+                          .symbolVariant(style.iconFill ? .fill : .none)
+                          .padding(iconPadding(for: geo))
+                          .offset(iconOffset(for: geo))
+                          .foreground(style.iconColors, gradient: style.iconGradient)
                     )
             }
         }
@@ -194,7 +207,8 @@ private extension BadgeIconStyle {
         
         BadgeIcon(
             name: "smile",
-            icon: .symbol("face.smiling.inverse"),
+            icon: .symbol("face.smiling"),
+            darkModeIcon: .symbol("checkmark"),
             style: .init(
                 iconColors: [.yellow, .black],
                 iconColorScheme: .light,

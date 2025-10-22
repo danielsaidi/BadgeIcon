@@ -10,7 +10,7 @@ import SwiftUI
 
 public extension BadgeIcon where Icon == Image {
 
-    static let accessibility = prominent("accessibility", "accessibility", .blue, fill: false)
+    static let accessibility = prominent("accessibility", "accessibility", .blue, iconFill: false)
     static let airplane = prominent("airplane", "airplane", .blue)
     static let airplaneMode = prominent("airplaneMode", "airplane", .orange)
     static let alert = icon("alert", "exclamationmark.triangle", .orange)
@@ -48,7 +48,7 @@ public extension BadgeIcon where Icon == Image {
     static let document = prominent("document", "doc.text", .blue)
     static let drop = prominent("drop", "drop", .blue)
     static let email = prominent("email", "envelope", .blue)
-    static let emoji = palette("emoji", "face.smiling.inverse", [.black, .yellow])
+    static let emoji = palette("emoji", "face.smiling.fill", [.black, .yellow], darkModeIconName: "face.smiling")
     static let error = icon("error", "exclamationmark.triangle", .red)
     static let export = shareIcon("export", "square.and.arrow.up.on.square")
     static let eyeglasses = prominent("eyeglasses", "eyeglasses", .black)
@@ -207,11 +207,13 @@ public extension BadgeIcon where Icon == Image {
         _ name: String? = nil,
         _ iconName: String,
         _ colors: [Color],
+        darkModeIconName: String? = nil,
         iconOffsetY: Double = 0
     ) -> Self {
         .init(
             name: name ?? iconName,
             icon: .symbol(iconName),
+            darkModeIcon: .symbol(darkModeIconName ?? iconName),
             style: .init(
                 iconColors: colors,
                 iconOffset: .init(x: 0, y: iconOffsetY),
@@ -225,13 +227,13 @@ public extension BadgeIcon where Icon == Image {
         _ name: String? = nil,
         _ iconName: String,
         _ badgeColor: Color,
-        fill: Bool = true
+        iconFill: Bool = true
     ) -> Self {
         .init(
             name: name ?? iconName,
             icon: .symbol(iconName),
             style: .init(
-                iconFill: fill,
+                iconFill: iconFill,
                 badgeColor: badgeColor
             )
         )

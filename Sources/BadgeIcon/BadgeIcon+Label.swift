@@ -13,7 +13,7 @@ public extension BadgeIcon {
     /// A display label for the icon.
     var label: some View {
         Label(
-            title: { Text(name ?? "-") },
+            title: { Text(name) },
             icon: { self }
         )
     }
