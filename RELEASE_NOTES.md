@@ -8,12 +8,16 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 ## 2.1
 
+This version improves dark mode support.
+
 ### ✨ Features
 
 * `BadgeIcon` has a new, optional dark mode icon.
+* `BadgeIconStyle` has a new, optional dark mode badge color.
 
 ### 🐛 Bug Fixes
 
+* `BadgeIcon` now uses a black badge in dark mode for many icons.
 * `BadgeIcon.emoji` now renders correctly in both light and dark mode.
 
 

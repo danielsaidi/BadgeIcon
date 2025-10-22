@@ -66,7 +66,7 @@ public extension BadgeIcon where Icon == Image {
     static let health = prominent("health", "heart.text.square", .red)
     static let heart = icon("heart", "heart", .red)
     static let keyboard = prominent("keyboard", "keyboard", .gray)
-    static let keyboardLight = light("keyboardLight", "keyboard")
+    static let keyboardLight = icon("keyboardLight", "keyboard", iconFill: false)
     static let iCloud = icon("iCloud", "icloud.fill", .cyan.opacity(0.8))
     static let languageSettings = icon("languageSettings", "globe", .cyan)
     static let leaf = prominent("leaf", "leaf", .green)
@@ -86,8 +86,8 @@ public extension BadgeIcon where Icon == Image {
     static let palette = multicolor("palette", "paintpalette", [.yellow], .white)
     static let passwords = prominent("passwords", "key", .gray)
     static let pencil = prominent("pencil", "pencil", .orange)
-    static let person = icon("person", "person", .black.opacity(0.7))
-    static let personCircle = icon("personCircle", "person.circle", .black.opacity(0.7))
+    static let person = icon("person", "person")
+    static let personCircle = icon("personCircle", "person.circle")
     static let personalHotspot = prominent("personalHotspot", "personalhotspot", .green)
     static let phone = prominent("phone", "phone", .green)
     static let pill = prominent("pill", "pills", .red)
@@ -137,8 +137,10 @@ public extension BadgeIcon where Icon == Image {
     static func icon(
         _ name: String? = nil,
         _ iconName: String,
-        _ iconColor: Color,
-        _ badgeIcon: Color = .white,
+        _ iconColor: Color? = nil,
+        _ badgeColor: Color = .white,
+        badgeColorDarkMode: Color? = .black,
+        iconFill: Bool = true,
         iconPadding: Double? = nil
     ) -> Self {
         .init(
@@ -146,8 +148,10 @@ public extension BadgeIcon where Icon == Image {
             icon: .symbol(iconName),
             style: .init(
                 iconColor: iconColor,
+                iconFill: iconFill,
                 iconPadding: iconPadding,
-                badgeColor: badgeIcon
+                badgeColor: badgeColor,
+                badgeColorDarkMode: badgeColorDarkMode
             )
         )
     }
@@ -242,7 +246,7 @@ public extension BadgeIcon where Icon == Image {
     /// A share icon has a different icon padding and offset.
     static func shareIcon(
         _ name: String? = nil,
-        _ iconName: String
+        _ iconName: String,
     ) -> Self {
         .init(
             name: name ?? iconName,
@@ -250,7 +254,8 @@ public extension BadgeIcon where Icon == Image {
             style: .init(
                 iconFill: false,
                 iconOffset: .init(x: 0, y: -0.03),
-                iconPadding: 0.15
+                iconPadding: 0.15,
+                badgeColorDarkMode: .black
             )
         )
     }

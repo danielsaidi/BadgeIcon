@@ -28,6 +28,7 @@ public struct BadgeIconStyle {
     ///   - iconPadding: The icon padding, by default `0.15` of the icon size.
     ///   - iconRenderingMode: The icon symbol rendering mode, by default `.monochrome`.
     ///   - badgeColor: The badge color, by default `.white`.
+    ///   - badgeColorDarkMode: The dark mode-specific badge color, if any.
     ///   - badgeCornerRadius: The badge corner radius, by default `0.3` of the icon size.
     ///   - badgeGradient: Whether or not to add a gradient to the icon color, by default `true`.
     ///   - badgeStrokeColor: The badge stroke color, if any.
@@ -42,14 +43,15 @@ public struct BadgeIconStyle {
         iconPadding: Double? = nil,
         iconRenderingMode: SymbolRenderingMode = .monochrome,
         badgeColor: Color = .white,
+        badgeColorDarkMode: Color? = nil,
         badgeCornerRadius: Double = 0.3,
         badgeGradient: Bool = true,
         badgeStrokeColor: Color? = nil,
         badgeStrokeWidth: Double = 0.001
     ) {
         let whiteBadge = badgeColor == .white
-        let whiteBadgeStroke = Color.hex(0xe7e7e7)
-        let whiteBadgeIconColor = Color.black.opacity(0.8)
+        let whiteBadgeStroke = Color.primary.opacity(0.3)
+        let whiteBadgeIconColor = Color.primary.opacity(0.8)
         let fallbackIconColor = whiteBadge ? whiteBadgeIconColor : .white
         let fallbackStroke = whiteBadge ? whiteBadgeStroke : .clear
 
@@ -64,6 +66,7 @@ public struct BadgeIconStyle {
         self.iconPadding = iconPadding ?? 0.15
         self.iconRenderingMode = iconRenderingMode
         self.badgeColor = badgeColor
+        self.badgeColorDarkMode = badgeColorDarkMode
         self.badgeCornerRadius = badgeCornerRadius
         self.badgeGradient = badgeGradient
         self.badgeStrokeColor = badgeStrokeColor ?? fallbackStroke
@@ -94,6 +97,9 @@ public struct BadgeIconStyle {
     /// The badge color.
     public var badgeColor: Color
     
+    /// The dark mode badge color, if any.
+    public var badgeColorDarkMode: Color?
+
     /// The badge corner radius.
     public var badgeCornerRadius: Double
     

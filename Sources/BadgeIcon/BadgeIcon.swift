@@ -61,18 +61,13 @@ public struct BadgeIcon<Icon: View>: View {
     private let darkModeIcon: Icon?
     private let style: BadgeIconStyle
 
-    private var icon: Icon {
-        guard colorScheme == .dark else { return lightModeIcon }
-        return darkModeIcon ?? lightModeIcon
-    }
-
     @Environment(\.colorScheme)
     private var colorScheme
 
     public var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .center) {
-                badge(style.badgeColor, gradient: style.badgeGradient)
+                badge(badgeColor, gradient: style.badgeGradient)
                     .cornerRadius(cornerRadius(for: geo))
                     .overlay(
                         RoundedRectangle(cornerRadius: cornerRadius(for: geo))
@@ -92,6 +87,19 @@ public struct BadgeIcon<Icon: View>: View {
             }
         }
         .aspectRatio(1, contentMode: .fit)
+    }
+}
+
+private extension BadgeIcon {
+
+    var badgeColor: Color {
+        guard colorScheme == .dark else { return style.badgeColor }
+        return style.badgeColorDarkMode ?? style.badgeColor
+    }
+
+    var icon: Icon {
+        guard colorScheme == .dark else { return lightModeIcon }
+        return darkModeIcon ?? lightModeIcon
     }
 }
 
