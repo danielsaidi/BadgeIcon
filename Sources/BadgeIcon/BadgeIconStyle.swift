@@ -52,6 +52,7 @@ public struct BadgeIconStyle {
         let whiteBadge = badgeColor == .white
         let whiteBadgeStroke = Color.primary.opacity(0.1)
         let whiteBadgeIconColor = Color.primary.opacity(0.8)
+        let fallbackBadgeColorDarkMode = whiteBadge ? Color.black : nil
         let fallbackIconColor = whiteBadge ? whiteBadgeIconColor : .white
         let fallbackStroke = whiteBadge ? whiteBadgeStroke : .clear
 
@@ -66,7 +67,7 @@ public struct BadgeIconStyle {
         self.iconPadding = iconPadding ?? 0.15
         self.iconRenderingMode = iconRenderingMode
         self.badgeColor = badgeColor
-        self.badgeColorDarkMode = badgeColorDarkMode
+        self.badgeColorDarkMode = badgeColorDarkMode ?? fallbackBadgeColorDarkMode
         self.badgeCornerRadius = badgeCornerRadius
         self.badgeGradient = badgeGradient
         self.badgeStrokeColor = badgeStrokeColor ?? fallbackStroke

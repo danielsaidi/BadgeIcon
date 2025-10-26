@@ -6,6 +6,14 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 2.1.2
+
+### 🐛 Bug Fixes
+
+* `BadgeIcon` fixes the dark mode badge color for more icons.
+
+
+
 ## 2.1.1
 
 ### 🐛 Bug Fixes

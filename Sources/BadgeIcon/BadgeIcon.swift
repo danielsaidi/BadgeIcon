@@ -203,27 +203,8 @@ private extension BadgeIconStyle {
 
 #Preview {
     VStack(spacing: 50) {
-        BadgeIcon(
-            name: "test",
-            icon: Image.symbol("checkmark")
-        )
-        .bold()
-        
-//        BadgeIcon(icon: Text("A"))
-//            .bold()
-        
-        
-        BadgeIcon(
-            name: "smile",
-            icon: .symbol("face.smiling"),
-            darkModeIcon: .symbol("checkmark"),
-            style: .init(
-                iconColors: [.yellow, .black],
-                iconColorScheme: .light,
-                iconRenderingMode: .palette
-            )
-        )
-        
+        BadgeIcon.emoji
+
         BadgeIcon(
             name: "circle",
             iconView: Circle(),

@@ -139,7 +139,6 @@ public extension BadgeIcon where Icon == Image {
         _ iconName: String,
         _ iconColor: Color? = nil,
         _ badgeColor: Color = .white,
-        badgeColorDarkMode: Color? = .black,
         iconFill: Bool = true,
         iconPadding: Double? = nil
     ) -> Self {
@@ -150,21 +149,8 @@ public extension BadgeIcon where Icon == Image {
                 iconColor: iconColor,
                 iconFill: iconFill,
                 iconPadding: iconPadding,
-                badgeColor: badgeColor,
-                badgeColorDarkMode: badgeColorDarkMode
+                badgeColor: badgeColor
             )
-        )
-    }
-
-    /// A light icon has a light badge and gray content.
-    static func light(
-        _ name: String? = nil,
-        _ iconName: String
-    ) -> Self {
-        .init(
-            name: name ?? iconName,
-            icon: .symbol(iconName),
-            style: .init(iconFill: false)
         )
     }
 
@@ -254,8 +240,7 @@ public extension BadgeIcon where Icon == Image {
             style: .init(
                 iconFill: false,
                 iconOffset: .init(x: 0, y: -0.03),
-                iconPadding: 0.15,
-                badgeColorDarkMode: .black
+                iconPadding: 0.15
             )
         )
     }
