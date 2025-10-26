@@ -6,6 +6,14 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 2.1.3
+
+### 🐛 Bug Fixes
+
+* `BadgeIcon.lightbulb` is now rendered with `.palette` mode.
+
+
+
 ## 2.1.2
 
 ### 🐛 Bug Fixes

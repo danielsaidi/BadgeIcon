@@ -70,7 +70,7 @@ public extension BadgeIcon where Icon == Image {
     static let iCloud = icon("iCloud", "icloud.fill", .cyan.opacity(0.8))
     static let languageSettings = icon("languageSettings", "globe", .cyan)
     static let leaf = prominent("leaf", "leaf", .green)
-    static let lightbulb = multicolor("lightbulb", "lightbulb", [.yellow])
+    static let lightbulb = palette("lightbulb", "lightbulb", [.yellow, .gray])
     static let lineChart = prominent("lineChart", "chart.xyaxis.line", .blue)
     static let location = prominent("location", "location", .blue)
     static let lock = prominent("lock", "lock", .gray)
