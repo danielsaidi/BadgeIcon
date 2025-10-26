@@ -50,7 +50,7 @@ public struct BadgeIconStyle {
         badgeStrokeWidth: Double = 0.001
     ) {
         let whiteBadge = badgeColor == .white
-        let whiteBadgeStroke = Color.primary.opacity(0.3)
+        let whiteBadgeStroke = Color.primary.opacity(0.1)
         let whiteBadgeIconColor = Color.primary.opacity(0.8)
         let fallbackIconColor = whiteBadge ? whiteBadgeIconColor : .white
         let fallbackStroke = whiteBadge ? whiteBadgeStroke : .clear

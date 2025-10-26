@@ -6,6 +6,14 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 2.1.1
+
+### 🐛 Bug Fixes
+
+* `BadgeIcon` now uses a more discrete stroke for white badges.
+
+
+
 ## 2.1
 
 This version improves dark mode support.
