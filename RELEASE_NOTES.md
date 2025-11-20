@@ -6,6 +6,14 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 2.1.4
+
+### 💡 Changes
+
+* `BadgeIcon.font` is now rendered with `.blue` color.
+
+
+
 ## 2.1.3
 
 ### 🐛 Bug Fixes

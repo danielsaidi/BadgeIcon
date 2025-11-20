@@ -203,6 +203,21 @@ private extension BadgeIconStyle {
 
 #Preview {
     VStack(spacing: 50) {
+        List {
+            Label {
+                Text("Test")
+            } icon: {
+                BadgeIcon.calendar
+                    .frame(width: 500)
+            }
+            Label {
+                Text("Test")
+            } icon: {
+                Image(systemName: "square")
+            }
+        }
+        .frame(height: 150)
+
         BadgeIcon.emoji
 
         BadgeIcon(
@@ -233,5 +248,5 @@ private extension BadgeIconStyle {
         
         BadgeIcon.calendar
     }
-    .padding(100)
+    .frame(maxWidth: .infinity)
 }

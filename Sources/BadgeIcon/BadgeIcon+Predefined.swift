@@ -59,7 +59,7 @@ public extension BadgeIcon where Icon == Image {
     static let fitness = prominent("fitness", "figure.run", .green)
     static let focus = prominent("focus", "moon", .indigo)
     static let folder = prominent("folder", "folder", .blue)
-    static let font = icon("font", "bold", .teal, iconPadding: 0.2)
+    static let font = icon("font", "bold", .blue, iconPadding: 0.2)
     static let games = prominent("games", "gamecontroller", .orange)
     static let graduation = prominent("graduation", "graduationcap", .blue)
     static let headphones = prominent("headphones", "beats.headphones", .gray)
@@ -266,7 +266,7 @@ public extension BadgeIcon where Icon == Image {
             .calculator, .calendar, .camera, .car, .cart, .chat, .checkmark,
             .cleaning, .clipboard, .clock, .compass, .controlCenter, .cpu,
             .creditCard, .cup, .cutlery,
-            .document, .displayAndBrightness, .developer, .drop,
+            .displayAndBrightness, .developer, .document, .drop,
             .email, .emoji, .error, .export, .eyeglasses,
             .faceId, .facemask, .featureRequest, .fitness, .fingerprint,
             .focus, .folder, .font,
@@ -298,8 +298,12 @@ public extension BadgeIcon where Icon == Image {
                 columns: [.init(.adaptive(minimum: 50, maximum: 80), spacing: 10)],
                 spacing: 10
             ) {
-                ForEach(BadgeIcon<Image>.predefined, id: \.id) {
-                    $0.label
+                ForEach(BadgeIcon<Image>.predefined, id: \.id) { icon in
+                    Button {
+                        print(icon.id)
+                    } label: {
+                        icon.label
+                    }
                 }
             }
             .padding()
