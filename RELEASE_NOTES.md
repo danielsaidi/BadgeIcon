@@ -8,6 +8,10 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 ## 2.1.4
 
+### ✨ Features
+
+* `BadgeIcon` has a new `scaledForList()` extension.
+
 ### 💡 Changes
 
 * `BadgeIcon.font` is now rendered with `.blue` color.

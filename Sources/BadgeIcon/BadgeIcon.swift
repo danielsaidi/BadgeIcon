@@ -90,6 +90,16 @@ public struct BadgeIcon<Icon: View>: View {
     }
 }
 
+public extension BadgeIcon {
+
+    /// Apply a scale that bumps up the size of the icon when used in a list.
+    func scaledForList(
+        scale: Double = 1.3
+    ) -> some View {
+        self.scaleEffect(scale)
+    }
+}
+
 private extension BadgeIcon {
 
     var badgeColor: Color {
