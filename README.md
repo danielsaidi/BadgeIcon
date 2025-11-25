@@ -8,7 +8,6 @@
     <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
     <a href="https://danielsaidi.github.io/BadgeIcon"><img src="https://img.shields.io/badge/documentation-web-blue.svg" alt="Documentation" /></a>
     <a href="https://github.com/danielsaidi/BadgeIcon/blob/master/LICENSE"><img src="https://img.shields.io/github/license/danielsaidi/BadgeIcon" alt="MIT License" /></a>
-    <a href="https://github.com/sponsors/danielsaidi"><img src="https://img.shields.io/badge/sponsor-GitHub-red.svg" alt="Sponsor my work" /></a>
 </p>
 
 
@@ -23,8 +22,6 @@ BadgeIcon is a SwiftUI library that lets you create beautiful, scalable icons, u
 BadgeIcon comes with **118** predefined icons, and lets you create custom icons with rich customization options. 
 
 
-
-
 ## Installation
 
 BadgeIcon can be installed with the Swift Package Manager:
@@ -32,12 +29,6 @@ BadgeIcon can be installed with the Swift Package Manager:
 ```
 https://github.com/danielsaidi/BadgeIcon.git
 ```
-
-
-## Support My Work
-
-You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
-
 
 
 ## Getting started
@@ -71,17 +62,19 @@ extension BadgeIcon {
 You can use both `Image` values or custom views as the icon that is shown inside the badge.
 
 
-
 ## Documentation
 
 The online [documentation][Documentation] has more information, articles, code examples, etc.
-
 
 
 ## Demo Application
 
 The `Demo` folder has a demo app that lets you explore the library and try changing the app icon.
 
+
+## Support My Work
+
+You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
 
 
 ## Contact
@@ -94,11 +87,9 @@ Feel free to reach out if you have questions or want to contribute in any way:
 * Mastodon: [@danielsaidi@mastodon.social][Mastodon]
 
 
-
 ## License
 
 BadgeIcon is available under the MIT license. See the [LICENSE][License] file for more info.
-
 
 
 [Email]: mailto:daniel.saidi@gmail.com
