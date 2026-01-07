@@ -6,6 +6,14 @@ Until then, breaking changes can happen in any version, and deprecated features 
 
 
 
+## 2.1.5
+
+### 🗑️ Deprecations
+
+* `BadgeIcon`'s `scaledForList()` extension is renamed to `scaledForListLabel()`.
+
+
+
 ## 2.1.4
 
 ### ✨ Features

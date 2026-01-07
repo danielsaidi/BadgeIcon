@@ -17,4 +17,12 @@ public extension BadgeIcon {
             icon: { self }
         )
     }
+
+    /// A display label for the icon, for use in lists.
+    var listLabel: some View {
+        Label(
+            title: { Text(name) },
+            icon: { self.scaledForListLabel() }
+        )
+    }
 }

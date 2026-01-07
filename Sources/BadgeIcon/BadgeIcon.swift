@@ -15,10 +15,11 @@ import SwiftUI
 /// makes the environment value approach unsuitable for this kind of styling.
 public struct BadgeIcon<Icon: View>: View {
 
-    /// Create a badge icon with an image as main icon.
+    /// Create a badge icon with an image icon.
     ///
     /// - Parameters:
-    ///   - name: The icon name.
+    ///   - id: The unique ID.
+    ///   - name: The icon name, by default a capitalized version of the ID.
     ///   - icon: The image to use as icon.
     ///   - darkModeIcon: The image to use as dark mode icon, if any.
     ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
@@ -35,12 +36,14 @@ public struct BadgeIcon<Icon: View>: View {
             style: style
         )
     }
-    
-    /// Create a badge icon with a custom view as main icon.
+
+    /// Create a badge icon with a custom icon view.
     ///
     /// - Parameters:
-    ///   - name: The icon name.
+    ///   - id: The unique ID.
+    ///   - name: The icon name, by default a capitalized version of the ID.
     ///   - iconView: The view to use as icon, if any.
+    ///   - darkModeIconView: The view to use as icon in dark mode, if any.
     ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
     public init(
         name: String,
@@ -92,11 +95,19 @@ public struct BadgeIcon<Icon: View>: View {
 
 public extension BadgeIcon {
 
-    /// Apply a scale that bumps up the size of the icon when used in a list.
-    func scaledForList(
-        scale: Double = 1.3
+    /// Apply a scale effect to bump up the size of the icon
+    /// when it's used as a list label icon.
+    func scaledForListLabel(
+        scale: Double = 1.2
     ) -> some View {
         self.scaleEffect(scale)
+    }
+
+    @available(*, deprecated, renamed: "scaledForListLabel")
+    func scaledForList(
+        scale: Double = 1.2
+    ) -> some View {
+        self.scaledForListLabel(scale: scale)
     }
 }
 
@@ -211,6 +222,15 @@ private extension BadgeIconStyle {
     }
 }
 
+private func preview<T>(
+    for badgeIcon: BadgeIcon<T>
+) -> some View {
+    VStack {
+        badgeIcon
+        Text(badgeIcon.name)
+    }
+}
+
 #Preview {
     VStack(spacing: 50) {
         List {
@@ -218,12 +238,12 @@ private extension BadgeIconStyle {
                 Text("Test")
             } icon: {
                 BadgeIcon.calendar
-                    .frame(width: 500)
+                    .scaledForList()
             }
             Label {
                 Text("Test")
             } icon: {
-                Image(systemName: "square")
+                Image(systemName: "calendar")
             }
         }
         .frame(height: 150)
