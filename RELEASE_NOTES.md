@@ -1,8 +1,11 @@
 # Release Notes
 
-[BadgeIcon](https://github.com/danielsaidi/BadgeIcon) will use semver after 1.0. 
+[BadgeIcon](https://github.com/danielsaidi/BadgeIcon) uses semantic versioning with the following strategy:
 
-Until then, breaking changes can happen in any version, and deprecated features may be removed in any minor version bump.
+* Deprecations can happen in any version.
+* Deprecations are only removed in `major` updates.
+* Breaking changes must only occur in `major` updates.
+* Breaking changes *can* occur in non-major updates, if the alternative is worse.
 
 
 
