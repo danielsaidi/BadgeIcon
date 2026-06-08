@@ -69,7 +69,7 @@ The online [documentation][Documentation] has more information, articles, code e
 
 ## Demo Application
 
-The `Demo` folder has a demo app that lets you explore the library and try changing the app icon.
+The `Demo` folder has a demo app that lets you explore the library.
 
 
 ## Support My Work
