@@ -35,7 +35,7 @@ public extension BadgeIcon where Icon == Image {
     static let chat = prominent("chat", "bubble.left.and.bubble.right", .blue)
     static let checkmark = icon("checkmark", "checkmark.circle", .green)
     static let cleaning = prominent("cleaning", "bubbles.and.sparkles", .blue)
-    static let clipboard = palette("clipboard", "list.clipboard.fill", [.white, .brown], iconOffsetY: -0.05)
+    static let clipboard = palette("clipboard", "list.clipboard.fill", .white, [.white, .brown], iconOffsetY: -0.05)
     static let clock = icon("clock", "clock", .white.opacity(0.9), .black)
     static let compass = prominent("compass", "safari.fill", .blue)
     static let controlCenter = prominent("controlCenter", "switch.2", .gray)
@@ -48,7 +48,7 @@ public extension BadgeIcon where Icon == Image {
     static let document = prominent("document", "doc.text", .blue)
     static let drop = prominent("drop", "drop", .blue)
     static let email = prominent("email", "envelope", .blue)
-    static let emoji = palette("emoji", "face.smiling.fill", [.black, .yellow], darkModeIconName: "face.smiling")
+    static let emoji = palette("emoji", "face.smiling.fill", .white, [.black, .yellow], darkModeIconName: "face.smiling")
     static let error = icon("error", "exclamationmark.triangle", .red)
     static let export = shareIcon("export", "square.and.arrow.up.on.square")
     static let eyeglasses = prominent("eyeglasses", "eyeglasses", .black)
@@ -70,7 +70,7 @@ public extension BadgeIcon where Icon == Image {
     static let iCloud = icon("iCloud", "icloud.fill", .cyan.opacity(0.8))
     static let languageSettings = icon("languageSettings", "globe", .cyan)
     static let leaf = prominent("leaf", "leaf", .green)
-    static let lightbulb = palette("lightbulb", "lightbulb", [.yellow, .gray])
+    static let lightbulb = palette("lightbulb", "lightbulb", .white, [.yellow, .gray])
     static let lineChart = prominent("lineChart", "chart.xyaxis.line", .blue)
     static let location = prominent("location", "location", .blue)
     static let lock = prominent("lock", "lock", .gray)
@@ -106,7 +106,8 @@ public extension BadgeIcon where Icon == Image {
     static let settings = prominent("settings", "gearshape", .gray)
     static let share = shareIcon("share", "square.and.arrow.up")
     static let shield = icon("shield", "checkmark.shield.fill", .green)
-    static let shield_lock = prominent("shield_lock", "lock.shield", .blue)
+    static let shieldLock = prominent("shieldLock", "lock.shield", .blue)
+    static let systemShortcuts = palette("systemShortcuts", "square.2.layers.3d", .scPurple, [.scPink, .scLavender])
     static let sideButton = prominent("sideButton", "button.vertical.left.press", .blue)
     static let soundAndHaptics = prominent("soundAndHaptics", "speaker.wave.3", .pink)
     static let sos = prominent("sos", "sos", .red)
@@ -129,6 +130,13 @@ public extension BadgeIcon where Icon == Image {
     static let wifi = prominent("wifi", "wifi", .blue)
     static let wind = prominent("wind", "wind", .gray)
     static let wrench = prominent("wrench", "wrench", .gray)
+}
+
+private extension Color {
+
+    static let scPink = Color(red: 233 / 255, green: 106 / 255, blue: 155 / 255)
+    static let scLavender = Color(red: 146 / 255, green: 123 / 255, blue: 210 / 255)
+    static let scPurple = Color(red: 75 / 255, green: 43 / 255, blue: 155 / 255)
 }
 
 public extension BadgeIcon where Icon == Image {
@@ -196,6 +204,7 @@ public extension BadgeIcon where Icon == Image {
     static func palette(
         _ name: String? = nil,
         _ iconName: String,
+        _ badgeColor: Color? = nil,
         _ colors: [Color],
         darkModeIconName: String? = nil,
         iconOffsetY: Double = 0
@@ -207,7 +216,8 @@ public extension BadgeIcon where Icon == Image {
             style: .init(
                 iconColors: colors,
                 iconOffset: .init(x: 0, y: iconOffsetY),
-                iconRenderingMode: .palette
+                iconRenderingMode: .palette,
+                badgeColor: badgeColor
             )
         )
     }
@@ -281,8 +291,9 @@ public extension BadgeIcon where Icon == Image {
             .personalHotspot, .phone, .pill, .play, .power, .premium, .presentation,
             .privacy, .prominentAlert, .prominentCheckmark, .prominentError,
             .recycling,
-            .safari, .screenTime, .search, .settings, .share, .shield, .shield_lock,
-            .sideButton, .soundAndHaptics, .sos, .speaker, .star, .studentdesk, .suitcase,
+            .safari, .screenTime, .search, .settings, .share, .shield, .shieldLock,
+            .sideButton, .soundAndHaptics, .sos, .speaker, .star, .studentdesk,
+            .systemShortcuts, .suitcase,
             .tag, .thermometer, .timer, .train, .trash, .touchId, .tv,
             .usb,
             .video,
@@ -318,4 +329,8 @@ public extension BadgeIcon where Icon == Image {
             $0.label
         }
     }
+}
+
+#Preview("Single") {
+    BadgeIcon.systemShortcuts
 }

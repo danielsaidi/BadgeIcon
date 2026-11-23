@@ -18,7 +18,6 @@ public struct BadgeIcon<Icon: View>: View {
     /// Create a badge icon with an image icon.
     ///
     /// - Parameters:
-    ///   - id: The unique ID.
     ///   - name: The icon name, by default a capitalized version of the ID.
     ///   - icon: The image to use as icon.
     ///   - darkModeIcon: The image to use as dark mode icon, if any.
@@ -36,11 +35,28 @@ public struct BadgeIcon<Icon: View>: View {
             style: style
         )
     }
+    
+    /// Create a badge icon with an image icon.
+    ///
+    /// - Parameters:
+    ///   - name: The icon name, by default a capitalized version of the ID.
+    ///   - symbolName: The icon symbol name.
+    ///   - style: The style to apply, by default ``BadgeIconStyle/standard``.
+    public init(
+        name: String,
+        symbolName: String,
+        style: BadgeIconStyle = .standard
+    ) where Icon == Image {
+        self.init(
+            name: name,
+            icon: Image(systemName: symbolName),
+            style: style
+        )
+    }
 
     /// Create a badge icon with a custom icon view.
     ///
     /// - Parameters:
-    ///   - id: The unique ID.
     ///   - name: The icon name, by default a capitalized version of the ID.
     ///   - iconView: The view to use as icon, if any.
     ///   - darkModeIconView: The view to use as icon in dark mode, if any.
@@ -98,14 +114,14 @@ public extension BadgeIcon {
     /// Apply a scale effect to bump up the size of the icon
     /// when it's used as a list label icon.
     func scaledForListLabel(
-        scale: Double = 1.2
+        scale: Double? = nil
     ) -> some View {
-        self.scaleEffect(scale)
+        self.scaleEffect(scale ?? 1.4)
     }
 
     @available(*, deprecated, renamed: "scaledForListLabel")
     func scaledForList(
-        scale: Double = 1.2
+        scale: Double? = nil
     ) -> some View {
         self.scaledForListLabel(scale: scale)
     }
@@ -238,7 +254,7 @@ private func preview<T>(
                 Text("Test")
             } icon: {
                 BadgeIcon.calendar
-                    .scaledForList()
+                    .scaledForListLabel()
             }
             Label {
                 Text("Test")

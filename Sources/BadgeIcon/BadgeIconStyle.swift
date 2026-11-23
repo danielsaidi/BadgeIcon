@@ -42,13 +42,14 @@ public struct BadgeIconStyle {
         iconOffset: CGPoint = .zero,
         iconPadding: Double? = nil,
         iconRenderingMode: SymbolRenderingMode = .monochrome,
-        badgeColor: Color = .white,
+        badgeColor: Color? = nil,
         badgeColorDarkMode: Color? = nil,
         badgeCornerRadius: Double = 0.3,
         badgeGradient: Bool = true,
         badgeStrokeColor: Color? = nil,
         badgeStrokeWidth: Double = 0.001
     ) {
+        let badgeColor = badgeColor ?? .white
         let whiteBadge = badgeColor == .white
         let whiteBadgeStroke = Color.primary.opacity(0.1)
         let whiteBadgeIconColor = Color.primary.opacity(0.8)

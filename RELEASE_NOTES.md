@@ -9,6 +9,15 @@
 
 
 
+## 2.2
+
+### ✨ Features
+
+* `BadgeIcon` has a new symbolName initializer.
+* `BadgeIcon` has a new `.systemShortcuts` icon.
+
+
+
 ## 2.1.5
 
 ### 🗑️ Deprecations
